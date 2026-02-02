@@ -1,1 +1,9 @@
-<Solution />
+<Solution>
+  <Folder Name="/Services/" />
+  <Folder Name="/Services/Catalog/">
+    <Project Path="Services/Catalog/Catalog.API/Catalog.API.csproj" Id="1b41f474-ac54-4494-8ad8-b721f3cc0921" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="DailyProgress.txt" />
+  </Folder>
+</Solution>
