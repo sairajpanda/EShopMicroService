@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CE4B9397-C3BF-4823-AA79-D93D3744DE10}|Solution Items{CE4B9397-C3BF-4823-AA79-D93D3744DE10}|C:\\Users\\debra\\source\\repos\\EShopMicroService\\DailyProgress.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{CE4B9397-C3BF-4823-AA79-D93D3744DE10}|Solution Items{CE4B9397-C3BF-4823-AA79-D93D3744DE10}|solutionrelative:DailyProgress.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B41F474-AC54-4494-8AD8-B721F3CC0921}|Services\\Catalog\\Catalog.API\\Catalog.API.csproj|c:\\users\\debra\\source\\repos\\eshopmicroservice\\services\\catalog\\catalog.api\\products\\createproduct\\createproductendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B41F474-AC54-4494-8AD8-B721F3CC0921}|Services\\Catalog\\Catalog.API\\Catalog.API.csproj|solutionrelative:services\\catalog\\catalog.api\\products\\createproduct\\createproductendpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B41F474-AC54-4494-8AD8-B721F3CC0921}|Services\\Catalog\\Catalog.API\\Catalog.API.csproj|c:\\users\\debra\\source\\repos\\eshopmicroservice\\services\\catalog\\catalog.api\\products\\createproduct\\createproducthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B41F474-AC54-4494-8AD8-B721F3CC0921}|Services\\Catalog\\Catalog.API\\Catalog.API.csproj|solutionrelative:services\\catalog\\catalog.api\\products\\createproduct\\createproducthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DailyProgress.txt",
+              "DocumentMoniker": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\DailyProgress.txt",
+              "RelativeDocumentMoniker": "DailyProgress.txt",
+              "ToolTip": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\DailyProgress.txt",
+              "RelativeToolTip": "DailyProgress.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-02T15:52:15.928Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateProductHandler.cs",
+              "DocumentMoniker": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductHandler.cs",
+              "RelativeDocumentMoniker": "Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductHandler.cs",
+              "ToolTip": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductHandler.cs",
+              "RelativeToolTip": "Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T10:08:43.102Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateProductEndPoint.cs",
+              "DocumentMoniker": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductEndPoint.cs",
+              "RelativeDocumentMoniker": "Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductEndPoint.cs",
+              "ToolTip": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductEndPoint.cs",
+              "RelativeToolTip": "Services\\Catalog\\Catalog.API\\Products\\CreateProduct\\CreateProductEndPoint.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T11:27:08.697Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

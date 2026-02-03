@@ -1,3 +1,13 @@
 31012026 EOD Status 27/350
 01022026 EOD Status 31/350
 02022026 EOD Status 34/350
+03022026 EOD Status 50/350/14.2 %
+
+
+---
+CreateProductCommand <<< ICommand<CreateProductResult>
+CreateProductResult
+CreateProductCommandHandler <<< ICommandHandler <CreateProductCommand, CreateProductResult>
+---
+CreateProductRequest
+CreateProductResponse
