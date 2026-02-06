@@ -1,18 +1,23 @@
 ﻿namespace Catalog.API.Products.CreateProduct;
-using Catalog.API.Models;
 using BuildingBlocks.CQRS;
+using Catalog.API.Models;
+using Catalog.API.DBContext;
 
-public record CreateProductCommand(string Name, string Description,decimal Price,List<string> Category,string ImageFile) : ICommand<CreateProductResult>;
+
+public record CreateProductCommand(string Name, string Description,decimal Price,List<string> Category,string ImageFile) 
+    : ICommand<CreateProductResult>;
 
 public record CreateProductResult(Guid Id);
 
+
+
 internal class CreateProductCommandHandler  : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
-    //private readonly IProductRepository _repository;
-    //public CreateProductCommandHandler(IProductRepository repository)
-    //{
-    //    _repository = repository;
-    //}
+    private readonly CatalogDBContext _repository;
+    public CreateProductCommandHandler(CatalogDBContext repository)
+    {
+        _repository = repository;
+    }
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
 
@@ -26,7 +31,8 @@ internal class CreateProductCommandHandler  : ICommandHandler<CreateProductComma
             ImageFile = command.ImageFile
         };
 
-        //await _repository.AddAsync(objproduct, cancellationToken);
+        _repository.Products.Add(objproduct);
+        await _repository.SaveChangesAsync(cancellationToken);
         return new CreateProductResult(objproduct.Id);
     }
 }
