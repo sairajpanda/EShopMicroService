@@ -2,3 +2,8 @@
 global using MediatR;
 global using AutoMapper;
 global using Microsoft.EntityFrameworkCore;
+global using BuildingBlocks.CQRS;
+global using Catalog.API.DBContext;
+global using Catalog.API.Models;
+global using Catalog.API.Products.CreateProduct;
+global using Microsoft.IdentityModel.Protocols;

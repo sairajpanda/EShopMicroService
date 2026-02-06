@@ -1,5 +1,33 @@
 [
   {
+    "ContainingType": "Catalog.API.Products.GetProducts.GetProductsEndpoint\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "products",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Catalog.API.Products.GetProducts.GetProductsResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/problem\u002Bjson"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "GetProducts",
+    "Description": "Get Products",
+    "Summary": "Get Products"
+  },
+  {
     "ContainingType": "Catalog.API.Products.CreateProduct.CreateProductEndPoint\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "products",

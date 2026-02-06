@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Catalog.API.Products.CreateProduct;
+using Catalog.API.Products.GetProducts;
 using System.Xml.Linq;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -22,5 +23,12 @@ public class ProductMappingProfile : Profile
                new CreateProductResponse(
                    src.Id
                ));
+
+
+          CreateMap<GetProductsResult, GetProductsResponse>()
+          .ConstructUsing(src =>
+              new GetProductsResponse(
+                  src.Products
+              ));
     }
     }
