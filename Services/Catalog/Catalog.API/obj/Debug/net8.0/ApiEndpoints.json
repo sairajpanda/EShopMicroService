@@ -1,5 +1,39 @@
 [
   {
+    "ContainingType": "Catalog.API.Products.UpdateProducts.UpdateProductsEndPoint\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "products",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Catalog.API.Products.UpdateProducts.UpdateProductRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Catalog.API.Products.UpdateProducts.UpdateProductResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 201
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/problem\u002Bjson"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "UpdateProduct",
+    "Description": "Update Product",
+    "Summary": "Update Product"
+  },
+  {
     "ContainingType": "Catalog.API.Products.GetProducts.GetProductsEndpoint\u002B\u003C\u003Ec",
     "Method": "\u003CAddRoutes\u003Eb__0_0",
     "RelativePath": "products",
@@ -60,5 +94,73 @@
     "EndpointName": "CreateProduct",
     "Description": "Create Product",
     "Summary": "Create Product"
+  },
+  {
+    "ContainingType": "Catalog.API.Products.GetProductsByID.GetProductsByIDHandler\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__0_0",
+    "RelativePath": "products/{id}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Catalog.API.Products.GetProducts.GetProductsResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/problem\u002Bjson"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "GetProductById",
+    "Description": "Get Products By Id",
+    "Summary": "Get Products By Id"
+  },
+  {
+    "ContainingType": "Catalog.API.Products.GetProductsByCategory.GetProductsByCategoryEndPoint\u002B\u003C\u003Ec",
+    "Method": "\u003CAddRoutes\u003Eb__1_0",
+    "RelativePath": "products/category/{category}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Catalog.API.Products.GetProductsByCategory.GetProductByCategoryResponse",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "application/problem\u002Bjson"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "EndpointName": "GetProductsByCategory",
+    "Description": "Get Products By Category",
+    "Summary": "Get Products By Category"
   }
 ]
