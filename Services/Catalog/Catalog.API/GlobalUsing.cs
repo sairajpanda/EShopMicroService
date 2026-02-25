@@ -7,3 +7,4 @@ global using Catalog.API.DBContext;
 global using Catalog.API.Models;
 global using Catalog.API.Products.CreateProduct;
 global using Microsoft.IdentityModel.Protocols;
+global using FluentValidation;

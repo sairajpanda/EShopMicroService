@@ -1,4 +1,5 @@
 
+using BuildingBlocks.Behaviour;
 using Catalog.API.DBContext;
 using System;
 
@@ -15,10 +16,14 @@ builder.Services.AddDbContext<CatalogDBContext>(options =>
 builder.Services.AddMediatR(configuration =>
 {
     configuration.RegisterServicesFromAssembly(typeof(Program).Assembly);
+    configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
 });
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 
 var app = builder.Build();
 
 app.MapCarter();
+
 
 app.Run();
