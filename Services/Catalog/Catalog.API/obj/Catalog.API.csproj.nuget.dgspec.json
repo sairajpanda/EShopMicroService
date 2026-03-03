@@ -65,6 +65,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             }
           },
           "imports": [
