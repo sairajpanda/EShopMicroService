@@ -1,5 +1,6 @@
 
 using BuildingBlocks.Behaviour;
+using BuildingBlocks.Exception;
 using BuildingBlocks.Logging;
 using Catalog.API.DBContext;
 using System;
@@ -24,12 +25,20 @@ builder.Services.AddMediatR(configuration =>
 });
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<CatalogDBContext>();
+    db.Database.Migrate();
+}
 
 //app.MapDefaultEndpoints();
 
 app.MapCarter();
-
+app.UseExceptionHandler();
 
 app.Run();

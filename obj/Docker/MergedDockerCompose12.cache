@@ -1,0 +1,44 @@
+name: dockercompose12355641691051504970
+services:
+  catalog.api:
+    build:
+      context: C:\Users\debra\source\repos\EShopMicroService
+      dockerfile: Catalog.API/Dockerfile
+    depends_on:
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Server=sqlserver;Database=DevDemo;User Id=sa;Password=StrongP@ssw0rd!;TrustServerCertificate=True
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 5432
+        published: "5432"
+        protocol: tcp
+  sqlserver:
+    container_name: Catalog.API
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: StrongP@ssw0rd!
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: CatalogAPIVolume
+        target: /var/opt/mssql
+        volume: {}
+networks:
+  default:
+    name: dockercompose12355641691051504970_default
+volumes:
+  CatalogAPIVolume:
+    name: dockercompose12355641691051504970_CatalogAPIVolume

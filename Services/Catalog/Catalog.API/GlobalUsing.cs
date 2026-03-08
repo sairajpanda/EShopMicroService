@@ -8,3 +8,7 @@ global using Catalog.API.Models;
 global using Catalog.API.Products.CreateProduct;
 global using Microsoft.IdentityModel.Protocols;
 global using FluentValidation;
+using BuildingBlocks.Behaviour;
+using BuildingBlocks.Exception;
+using BuildingBlocks.Logging;
+using System;

@@ -1,30 +1,60 @@
-﻿using System;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.Extensions.Logging;
-using Serilog;
-using FluentValidation;
+namespace BuildingBlocks.Exception;
 
-namespace BuildingBlocks.Exception
+public class CustomExceptionHandler : IExceptionHandler
 {
-    public class CustomExceptionHandler
-        (ILogger<CustomExceptionHandler> logger)
+    public async ValueTask<bool> TryHandleAsync(HttpContext context, System.Exception exception, CancellationToken cancellationToken)
     {
-        /*public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, System.Exception exception, CancellationToken cancellationToken)
-        {
-            logger.LogError(exception.Message,DateTime.UtcNow,
-                "An unhandled exception occurred.");
+        Log.Error(exception, exception.Message);
 
-           (string Details,string title,int StatusCode) details
-                = exception switch
-                {
-                    InternalServerException
-                }
-        }*/
+        (string Detail, string Title, int StatusCode) details =
+            exception switch
+            {
+                //InternalServerException =>
+                //(
+                //exception.Message,
+                //exception.GetType().Name,
+                //context.Response.StatusCode = StatusCodes.Status500InternalServerError
+                //),
+                //NotFoundException =>
+                //(
+                //exception.Message,
+                //exception.GetType().Name,
+                //context.Response.StatusCode = StatusCodes.Status404NotFound
+                //),
+                 _ =>
+                (
+                exception.Message,
+                exception.GetType().Name,
+                context.Response.StatusCode = StatusCodes.Status500InternalServerError
+                )
+            };
+        context.Response.StatusCode = details.StatusCode;
+
+        var problemDetails = new ProblemDetails
+        {
+            Title = "An unexpected error occurred",
+            Detail = exception.Message,
+            Status = StatusCodes.Status500InternalServerError,
+            Instance = context.Request.Path
+        };
+
+
+        await context.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
+
+        return true;
+
     }
 }
