@@ -51,10 +51,8 @@ public class CustomExceptionHandler : IExceptionHandler
             Instance = context.Request.Path
         };
 
-
         await context.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
 
         return true;
-
     }
 }

@@ -1,6 +1,11 @@
-﻿namespace Basket.API.Basket.GetBaskets;
+﻿using Basket.API.Data;
 
-public record StoreBasketCommnad (ShoppingCart _ShoppingCart) : ICommand<StoreBasketResult>;
+namespace Basket.API.Basket.GetBaskets;
+
+public record StoreBasketCommnad (
+ string UserName,
+ ICollection<ShoppingCartItem> Items,
+ decimal TotalItemPrice) : ICommand<StoreBasketResult>;
 
 public record StoreBasketResult(string UserName);
 
@@ -8,15 +13,21 @@ public class StoreBasketCommandValidator : AbstractValidator<StoreBasketCommnad>
 {
     public StoreBasketCommandValidator()
     {
-        RuleFor(x => x._ShoppingCart).NotNull().WithMessage("ShoppingCart is required.");
+        RuleFor(x => x.UserName).NotNull().WithMessage("ShoppingCart UserName is required.");
     }
 }
 
-public class StoreBasketCommnadHandler : ICommandHandler<StoreBasketCommnad, StoreBasketResult>
+public class StoreBasketCommnadHandler(IBasketRepository _BasketRepository) : ICommandHandler<StoreBasketCommnad, StoreBasketResult>
 {
     public async Task<StoreBasketResult> Handle(StoreBasketCommnad request, CancellationToken cancellationToken)
     {
-        ShoppingCart _cart = request._ShoppingCart;
-        return new StoreBasketResult("Sai");
+        ShoppingCart _objShoppingCart = new ShoppingCart();
+        _objShoppingCart.UserName = request.UserName;
+        _objShoppingCart.Items = request.Items; 
+        _objShoppingCart.TotalItemPrice = request.TotalItemPrice;
+
+        await _BasketRepository.StoreBasket(_objShoppingCart, cancellationToken);
+
+        return new StoreBasketResult(request.UserName);
     }
 }

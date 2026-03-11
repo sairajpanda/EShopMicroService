@@ -20,22 +20,8 @@ internal class CreateProductCommandHandler
     (CatalogDBContext _repository)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
-    /*private readonly CatalogDBContext _repository;
-    public CreateProductCommandHandler(CatalogDBContext repository)
-    {
-        _repository = repository;
-    }*/
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        /*var validationResult = 
-            await _validator.ValidateAsync(command, cancellationToken);
-        var errors = 
-            validationResult.Errors.Select(e => e.ErrorMessage).ToList();
-        if (errors.Any())
-        {
-            throw new ValidationException(errors.FirstOrDefault());
-        }*/
-
         var objproduct = new Product
         {
             Id = Guid.NewGuid(),

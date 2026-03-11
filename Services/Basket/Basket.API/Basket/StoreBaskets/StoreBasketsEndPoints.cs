@@ -1,6 +1,9 @@
 ﻿namespace Basket.API.Basket.GetBaskets;
 
-public record StoreBasketsRequest(ShoppingCart _shoppingCart);
+public record StoreBasketsRequest(
+ string UserName,
+ ICollection<ShoppingCartItem> Items,
+ decimal TotalItemPrice);
 
 public record StoreBasketsResponse(string UserName);
 
@@ -9,9 +12,9 @@ public class StoreBasketsEndPoints : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/basket", async(StoreBasketsRequest requst,ISender sender,IMapper mapper) =>
+        app.MapPost("/basket", async(StoreBasketsRequest request, IMapper mapper, ISender sender) =>
         {
-            var command = mapper.Map<StoreBasketCommnad>(requst);
+            var command = mapper.Map<StoreBasketCommnad>(request);
             var results = await sender.Send(command);
             var response = mapper.Map<StoreBasketsResponse>(results);
             return Results.Created($"/basket/{response.UserName}", response);

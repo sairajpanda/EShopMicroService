@@ -11,7 +11,7 @@ internal class GetProductsByCategoryQueryHandler(CatalogDBContext _repository) :
 {
     public async Task<GetProductByCategoryResult> Handle(GetProductsByCategoryQuery request, CancellationToken cancellationToken)
     {
-        var products = await _repository.Products.AsNoTracking().Where (p => p.Category.Contains(request.Category)).ToListAsync(cancellationToken); ;
+        var products = await _repository.Products.AsNoTracking().Where (p => p.Category.Contains(request.Category)).ToListAsync(cancellationToken); 
 
         return new GetProductByCategoryResult(products);
     }
