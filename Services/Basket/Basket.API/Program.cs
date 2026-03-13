@@ -26,6 +26,8 @@ builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddProblemDetails();
 
 builder.Services.AddTransient<IBasketRepository, BasketRepository>();
+builder.Services.Decorate<IBasketRepository, BasketRepository>();
+
 
 var app = builder.Build();
 
