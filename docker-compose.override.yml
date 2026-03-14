@@ -15,3 +15,20 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
+
+  basketapi:
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+    ports:
+      - "5278:8080"
+      - "5279:8081"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
+
+  distributedcache:
+    container_name : distributedcache
+    restart: always
+    ports :
+      - "6379:6379"

@@ -30,6 +30,26 @@ services:
     networks:
       - backend
 
+  basketapi:
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+    container_name: basketapi
+    ports:
+      - "5278:8080"
+      - "5279:8081"
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
+    networks:
+      - backend
+
+  distributedcache:
+    image : redis
+
+
 volumes:
   sql_data:
 
