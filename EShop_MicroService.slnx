@@ -9,6 +9,9 @@
   <Folder Name="/Services/Catalog/">
     <Project Path="Services/Catalog/Catalog.API/Catalog.API.csproj" Id="1b41f474-ac54-4494-8ad8-b721f3cc0921" />
   </Folder>
+  <Folder Name="/Services/Discount/">
+    <Project Path="Services/Discount/Discount.Grpc/Discount.Grpc.csproj" Id="325d257b-a514-4d99-90e3-f9b5674b2421" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="DailyProgress.txt" />
   </Folder>
