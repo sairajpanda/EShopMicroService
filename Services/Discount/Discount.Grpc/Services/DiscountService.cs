@@ -39,13 +39,31 @@ public class DiscountProtoNewService (CouponDBContext couponDB) : DiscountServic
         };
     }
 
-    public override Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
+    public override async Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
     {
-        return base.UpdateDiscount(request, context);
+        var _coupons = couponDB.Coupons.Where(x => x.ProductName == request.Coupon.ProductName).FirstOrDefault()!;
+        _coupons.ProductName = request.Coupon.ProductName;
+        _coupons.Amount = request.Coupon.Amount;
+        _coupons.Description = request.Coupon.Description;
+
+        couponDB.Coupons.Update(_coupons);
+        await couponDB.SaveChangesAsync();
+        return new CouponModel
+        {
+            Id = request.Coupon.Id,
+            ProductName = request.Coupon.ProductName,
+            Amount = request.Coupon.Amount,
+            Description = request.Coupon.Description
+        };
     }
 
-    public override Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
+    public override async Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
     {
-        return base.DeleteDiscount(request, context);
+        var _coupons = couponDB.Coupons.Where(x => x.ProductName == request.ProductName).FirstOrDefault()!;
+        couponDB.Coupons.Remove(_coupons);
+        await couponDB.SaveChangesAsync();
+        return new DeleteDiscountResponse{
+            Success = true
+        };
     }
 }
