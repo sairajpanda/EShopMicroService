@@ -44,3 +44,16 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\StackExchange.Redis.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\HealthChecks.UI.Core.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Pipelines.Sockets.Unofficial.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Basket.API.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.deps.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.runtimeconfig.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.staticwebassets.endpoints.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.exe
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Google.Protobuf.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Core.Api.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.AspNetCore.Server.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.Common.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.pdb

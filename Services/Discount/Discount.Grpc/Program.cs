@@ -12,15 +12,16 @@ builder.Services.AddDbContext<CouponDBContext>(options => options.UseSqlServer(b
 var app = builder.Build();
 
 // Configure the HTTP request middleware pipeline.
+app.UseMigration();
 app.MapGrpcService<DiscountProtoNewService>();
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. " +
 "To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<CouponDBContext>();
-    db.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var db = scope.ServiceProvider.GetRequiredService<CouponDBContext>();
+//    db.Database.Migrate();
+//}
 
 //Application run
 app.Run();
