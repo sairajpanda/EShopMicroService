@@ -50,7 +50,7 @@ services:
       com.microsoft.visual-studio.project-name: "Catalog.API"
     tty: true
 
-  discount.grpc:
+  discount-grpc:
     build:
       args:
         LAUNCHING_FROM_VS: true

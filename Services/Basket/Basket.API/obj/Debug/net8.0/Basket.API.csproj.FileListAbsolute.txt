@@ -157,3 +157,10 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Deb
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\HealthChecks.SqlServer.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\HealthChecks.UI.Client.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\HealthChecks.UI.Core.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Google.Protobuf.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.AspNetCore.Server.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.AspNetCore.Server.ClientFactory.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Core.Api.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Net.Client.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Net.ClientFactory.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Net.Common.dll

@@ -1,11 +1,12 @@
-﻿using Basket.API.Data;
+﻿using Azure.Core;
+using Basket.API.Data;
+using Discount.Grpc;
+using Grpc.Core;
 
 namespace Basket.API.Basket.GetBaskets;
 
-public record StoreBasketCommnad (
- string UserName,
- ICollection<ShoppingCartItem> Items,
- decimal TotalItemPrice) : ICommand<StoreBasketResult>;
+public record StoreBasketCommnad (string UserName,ICollection<ShoppingCartItem> Items,decimal TotalItemPrice) 
+    : ICommand<StoreBasketResult>;
 
 public record StoreBasketResult(string UserName);
 
@@ -17,17 +18,32 @@ public class StoreBasketCommandValidator : AbstractValidator<StoreBasketCommnad>
     }
 }
 
-public class StoreBasketCommnadHandler(IBasketRepository _BasketRepository) : ICommandHandler<StoreBasketCommnad, StoreBasketResult>
+public class StoreBasketCommnadHandler(IBasketRepository _BasketRepository, DiscountService.DiscountServiceClient _discount) 
+    : ICommandHandler<StoreBasketCommnad, StoreBasketResult>
 {
     public async Task<StoreBasketResult> Handle(StoreBasketCommnad request, CancellationToken cancellationToken)
     {
+        StoreBasketCommnad _request=  await DeductDiscount(request, cancellationToken);
+
         ShoppingCart _objShoppingCart = new ShoppingCart();
-        _objShoppingCart.UserName = request.UserName;
-        _objShoppingCart.Items = request.Items; 
-        _objShoppingCart.TotalItemPrice = request.TotalItemPrice;
+        _objShoppingCart.UserName = _request.UserName;
+        _objShoppingCart.Items = _request.Items; 
+        _objShoppingCart.TotalItemPrice = _request.Items.Sum(x => x.Price * x.Quantity);
 
         await _BasketRepository.StoreBasket(_objShoppingCart, cancellationToken);
 
         return new StoreBasketResult(request.UserName);
+    }
+
+    public async Task<StoreBasketCommnad> DeductDiscount(StoreBasketCommnad shoppingCart, CancellationToken cancellationToken)
+    {
+        foreach (var item in shoppingCart.Items)
+        {
+            GetDiscountRequest GetDiscountRequestObj = new GetDiscountRequest();
+            GetDiscountRequestObj.ProductName = item.ProductName;
+            var coupon = await _discount.GetDiscountAsync(GetDiscountRequestObj, cancellationToken: cancellationToken);
+            item.Price -= (int)coupon.Amount;
+        }
+        return shoppingCart;
     }
 }

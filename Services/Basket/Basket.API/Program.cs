@@ -1,20 +1,21 @@
+using Basket.API.Data;
 using Basket.API.DBContext;
 using BuildingBlocks.Behaviour;
 using BuildingBlocks.Exception;
 using BuildingBlocks.Logging;
-using Basket.API.Data;
-using System;
+using Discount.Grpc;
+using Grpc.Core;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using System;
 
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to ther container
 
+//Application services
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
-
 builder.Services.AddCarter();
-
 builder.Services.AddDbContext<BasketDbContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddMediatR(cfg =>
@@ -40,6 +41,17 @@ builder.Services.AddHealthChecks()
     .AddSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), name: "SQL Server")
     .AddRedis(builder.Configuration.GetConnectionString("Redis"), name: "Redis Cache");
 
+
+builder.Services.AddGrpcClient<DiscountService.DiscountServiceClient>(options =>
+{
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]);
+}).ConfigurePrimaryHttpMessageHandler(() =>
+{
+    return new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+    };
+});
 
 var app = builder.Build();
 

@@ -15,6 +15,7 @@
 		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.0.0" />
 		<PackageReference Include="AutoMapper" Version="14.0.0" />
 		<PackageReference Include="Carter" Version="8.0.0" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
@@ -29,6 +30,12 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Protobuf Include="..\..\Discount\Discount.Grpc\Protos\Discount.proto" GrpcServices="Client">
+	    <Link>Protos\Discount.proto</Link>
+	  </Protobuf>
 	</ItemGroup>
 
 </Project>

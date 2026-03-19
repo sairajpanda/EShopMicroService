@@ -5,6 +5,31 @@ services:
     ports:
       - "1433:1433"
 
+  discount-grpc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "6002:8080"
+      - "6062:8081"
+    networks:
+    - backend 
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+ 
+  distributedcache:
+    image : redis
+    container_name : distributedcache
+    restart: always
+    ports :
+      - "6379:6379"
+    networks:
+    - backend
+
   catalogapi:
     build:
       context: .
@@ -23,25 +48,19 @@ services:
     ports:
       - "5278:8080"
       - "5279:8081"
+    networks:
+    - backend
+    depends_on:
+      - distributedcache
+      - discount-grpc
+      - sqlserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
+      ConnectionStrings__Redis: "distributedcache:6379"
+      GrpcServices__DiscountUrl: "http://discount-grpc:8080"
 
-  distributedcache:
-    container_name : distributedcache
-    restart: always
-    ports :
-      - "6379:6379"
-  discount.grpc:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-    ports:
-      - "6002:8080"
-      - "6062:8081"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+
+
+

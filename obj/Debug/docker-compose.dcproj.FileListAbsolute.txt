@@ -57,3 +57,5 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Log
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.Common.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.ClientFactory.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.Client.dll

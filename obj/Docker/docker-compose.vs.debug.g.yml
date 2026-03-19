@@ -68,7 +68,7 @@ services:
       com.microsoft.visualstudio.debuggee.killprogram: "dotnet --roll-forward Major /VSTools/DistrolessHelper/DistrolessHelper.dll --stop dotnet"
     tty: true
 
-  discount.grpc:
+  discount-grpc:
     image: discountgrpc:dev
     build:
       args:
