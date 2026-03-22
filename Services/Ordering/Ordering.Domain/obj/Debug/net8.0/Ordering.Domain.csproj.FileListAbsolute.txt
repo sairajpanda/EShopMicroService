@@ -1,0 +1,16 @@
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\bin\Debug\net8.0\Ordering.Domain.deps.json
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\bin\Debug\net8.0\Ordering.Domain.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\bin\Debug\net8.0\Ordering.Domain.pdb
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.AssemblyInfoInputs.cache
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.AssemblyInfo.cs
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.csproj.CoreCompileInputs.cache
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.sourcelink.json
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\refint\Ordering.Domain.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.pdb
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\ref\Ordering.Domain.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\bin\Debug\net8.0\BuildingBlocks.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\bin\Debug\net8.0\BuildingBlocks.pdb
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.Domain.csproj.AssemblyReference.cache
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Domain\obj\Debug\net8.0\Ordering.5B2A0ED2.Up2Date

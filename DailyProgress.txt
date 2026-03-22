@@ -1,3 +1,2 @@
-16th March MicroServices  175 / 350 (50%)
----
-AI   15 / 70 (21.42 %) 
+MicroServices  187 / 350 (53%)
+AI  16 / 70 (23%)

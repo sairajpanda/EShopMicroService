@@ -14,6 +14,9 @@
   </Folder>
   <Folder Name="/Services/Ordering/">
     <Project Path="Services/Ordering/Ordering.API/Ordering.API.csproj" Id="4566df80-462a-4a9a-83ca-6c6adbba1c7d" />
+    <Project Path="Services/Ordering/Ordering.Application/Ordering.Application.csproj" Id="89974a1a-31c0-44dc-b12a-0d08b66a718a" />
+    <Project Path="Services/Ordering/Ordering.Domain/Ordering.Domain.csproj" Id="6a69b6a0-7d04-4211-ac93-60e6ddddebc5" />
+    <Project Path="Services/Ordering/Ordering.Infra/Ordering.Infra.csproj" Id="e9732f06-9ca5-4208-888b-e2183ebd505e" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="DailyProgress.txt" />
