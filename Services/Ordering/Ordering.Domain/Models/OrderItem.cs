@@ -2,7 +2,7 @@
 
 namespace Ordering.Domain.Models;
 
-public class OrderItem : Entity<OrderItem>
+public class OrderItem : Entity<OrderItemId>
 {
     public ProductId ProductId { get; private set; } = default!;
     public OrderId OrderId { get; private set; } = default!;
