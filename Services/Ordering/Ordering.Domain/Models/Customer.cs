@@ -2,13 +2,20 @@
 
 namespace Ordering.Domain.Models;
 
-public class Customer : Entity<Guid>
+public class Customer : Entity<CustomerId>
 {
     public string Name { get; private set; } = default!;
-    public decimal Price { get; private set; } = default!;
-    internal Customer(string name, decimal price)
+    public string Email { get; private set; } = default!;
+
+    public static Customer Create(CustomerId id,string name, string email)
     {
-        Name = name;
-        Price = price;
+        ArgumentException.ThrowIfNullOrEmpty(name, nameof(name));
+        ArgumentException.ThrowIfNullOrEmpty(email, nameof(email));
+        return new Customer
+        {
+            Id = id,
+            Name = name,
+            Email = email
+        };
     }
 }
