@@ -16,7 +16,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Application services
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddCarter();
-builder.Services.AddDbContext<BasketDbContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<BasketDbContext>
+    (options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddMediatR(cfg =>
 {

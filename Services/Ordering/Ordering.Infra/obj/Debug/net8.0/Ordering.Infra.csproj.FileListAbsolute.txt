@@ -18,3 +18,5 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Infra\o
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Infra\obj\Debug\net8.0\refint\Ordering.Infra.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Infra\obj\Debug\net8.0\Ordering.Infra.pdb
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Infra\obj\Debug\net8.0\ref\Ordering.Infra.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Infra\bin\Debug\net8.0\Ordering.Infra.runtimeconfig.json
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.Infra\obj\Debug\net8.0\Ordering.Infra.genruntimeconfig.cache
