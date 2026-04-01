@@ -41,6 +41,18 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
 
+  orderapi:
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+    ports:
+      - "5280:8080"
+      - "5281:8081"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=AuthDemo;TrustServerCertificate=True;"
+
+
   basketapi:
     build:
       context: .

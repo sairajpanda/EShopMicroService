@@ -59,3 +59,15 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.Common.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Discount.Grpc.pdb
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.ClientFactory.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Grpc.Net.Client.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.API.deps.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.API.runtimeconfig.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.API.staticwebassets.endpoints.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.API.exe
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.API.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Application.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Infra.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Domain.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.API.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Application.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Infra.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Domain.pdb

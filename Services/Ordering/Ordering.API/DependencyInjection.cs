@@ -10,9 +10,9 @@ public static class DependencyInjection
         return services;
     }
 
-    public static WebApplicationBuilder UseApiCservices(this WebApplicationBuilder builder)
+    public static WebApplication UseApiServices(this WebApplication app)
     {
         //builder.Services.AddApiServices();
-        return builder;
+        return app;
     }
 }

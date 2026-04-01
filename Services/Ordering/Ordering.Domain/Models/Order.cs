@@ -42,9 +42,9 @@ public class Order : Aggregate<OrderId>
         return order;
     }
 
-    public void Add(ProductId productId, int quantity, decimal price)
+    public void Add(ProductId productId, int quantity, decimal unitPrice)
     {
-        var orderItem = new OrderItem(productId, this.Id, quantity, price);
+        var orderItem = new OrderItem(productId, this.Id, quantity, unitPrice);
         _ordersitems.Add(orderItem);
         this.AddDomainEvent(new OrderItemAddedEvent(orderItem));
     }

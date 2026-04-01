@@ -8,12 +8,13 @@ public class OrderItem : Entity<OrderItemId>
     public OrderId OrderId { get; private set; } = default!;
     public int Quantity { get; private set; } = default!;
     public decimal UnitPrice { get; private set; } = default!;
-    internal OrderItem(ProductId productId, OrderId orderId, int quantity, decimal price)
+    internal OrderItem(ProductId productId, OrderId orderId, int quantity, decimal unitPrice)
     {
         ProductId = productId;
         OrderId = orderId;
         Quantity = quantity;
-        UnitPrice = price;
+        UnitPrice = unitPrice;
         Id= OrderItemId.Of(Guid.NewGuid());
     }
+    private OrderItem() { }
 }
