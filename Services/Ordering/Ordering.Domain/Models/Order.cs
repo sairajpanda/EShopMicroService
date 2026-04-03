@@ -1,9 +1,13 @@
 ﻿namespace Ordering.Domain.Models;
+
+using MediatR;
 using Ordering.Domain.Events;
 
 
 public class Order : Aggregate<OrderId>
 {
+    public readonly List<INotification> _domainEvents = new();
+
     private readonly List<OrderItem> _ordersitems = new List<OrderItem>();
     public IReadOnlyList<OrderItem> OrderItems => _ordersitems;
     public CustomerId CustomerId { get; private set; } = default!;
@@ -44,9 +48,10 @@ public class Order : Aggregate<OrderId>
 
     public void Add(ProductId productId, int quantity, decimal unitPrice)
     {
-        var orderItem = new OrderItem(productId, this.Id, quantity, unitPrice);
-        _ordersitems.Add(orderItem);
+         var orderItem = new OrderItem(productId, this.Id, quantity, unitPrice);
+         _ordersitems.Add(orderItem);
         this.AddDomainEvent(new OrderItemAddedEvent(orderItem));
+        this._domainEvents.Add(new OrderItemAddedEvent(orderItem));
     }
      public void Remove(OrderItemId orderItemId)
     {

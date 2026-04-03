@@ -24,12 +24,30 @@ public static class DatabaseExtentions
     private static async Task SeedAsync(ApplicationDbContext context)
     {
         await SeedCutomerAsync(context);
+        await SeedProductAsync(context);
+        await SeedPOrderandItemAsync(context);
     }
     private static async Task SeedCutomerAsync (ApplicationDbContext context)
     {
         if (! await context.Customers.AnyAsync())
         {
             await context.Customers.AddRangeAsync(InitialData.Customers);
+            await context.SaveChangesAsync();
+        }
+    }
+    private static async Task SeedProductAsync(ApplicationDbContext context)
+    {
+        if (!await context.Products.AnyAsync())
+        {
+            await context.Products.AddRangeAsync(InitialData.Products);
+            await context.SaveChangesAsync();
+        }
+    }
+    private static async Task SeedPOrderandItemAsync(ApplicationDbContext context)
+    {
+        if (!await context.Orders.AnyAsync())
+        {
+            await context.Orders.AddRangeAsync(InitialData.OrderWithItems);
             await context.SaveChangesAsync();
         }
     }
