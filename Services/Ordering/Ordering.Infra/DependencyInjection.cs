@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using Ordering.Application.Data;
 using Ordering.Infra.Data.Interceptors;
 
 namespace Ordering.Infra;
@@ -20,6 +21,7 @@ public static class DependencyInjection
             options.UseSqlServer(connectionString);
         });
 
+        services.AddScoped<IApplicationDbContext,ApplicationDbContext>();
 
         return services;
     }
