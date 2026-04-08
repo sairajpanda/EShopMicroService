@@ -43,52 +43,43 @@ public class CreateOrderCommandHandler (IApplicationDbContext DbContext) : IComm
         await DbContext.SaveChangesAsync(cancellationToken);
         return new CreateOrderResult(order.Id.Value);
     }
-}
+
 
 private Order CreateNewOrder(OrderDto orderDto)
     {
         var BillingAddress =
-           Address.Of(orderDto.BillingAddress.FirstName, 
-           orderDto.BillingAddress.LastName, 
-           orderDto.BillingAddress.State, 
-           orderDto.BillingAddress.City, 
-           orderDto.BillingAddress.Country);
+           Address.Of(orderDto.ShippingAddress.FirstName, 
+           orderDto.ShippingAddress.LastName,
+           orderDto.ShippingAddress.Street,
+           orderDto.ShippingAddress.City,
+           orderDto.ShippingAddress.State,
+           orderDto.ShippingAddress.Country,
+           orderDto.ShippingAddress.ZipCode,
+           orderDto.ShippingAddress.EmailAddress);
+        
+        var ShippingAddress =
+   Address.Of(orderDto.BillingAddress.FirstName,
+   orderDto.BillingAddress.LastName,
+   orderDto.BillingAddress.Street,
+   orderDto.BillingAddress.City,
+   orderDto.BillingAddress.State,
+   orderDto.BillingAddress.Country,
+   orderDto.BillingAddress.ZipCode,
+   orderDto.BillingAddress.EmailAddress);
 
+        var NewOrder = Order.Create(
+            OrderId.Of(Guid.NewGuid()),
+            CustomerId.Of(orderDto.CustomerId),
+            OrderName.Of(orderDto.OrderName),
+            BillingAddress,
+            ShippingAddress,
+            Payment.Of(orderDto.Payment.CardName, orderDto.Payment.CardNumber, orderDto.Payment.CardHolderName, 
+            orderDto.Payment.ExpirationDate, orderDto.Payment.Cvv, orderDto.Payment.PaymentMethod));
 
-        string firstName, string lastName, string street, string city, string state, string country, string zipCode, string? emailAddress
-        //var order = new Domain.Models.Order
-        //{
-        //Id = Guid.NewGuid();
-        //CustomerId = orderDto.CustomerId;
-        //OrderName = orderDto.OrderName;
-
-        //    ShippingAddress = new Domain.Models.Address
-        //    {
-        //        Street = orderDto.ShippingAddress.Street,
-        //        City = orderDto.ShippingAddress.City,
-        //        State = orderDto.ShippingAddress.State,
-        //        ZipCode = orderDto.ShippingAddress.ZipCode,
-        //        Country = orderDto.ShippingAddress.Country
-        //    },
-        //    Payment = new Domain.Models.Payment
-        //    {
-        //        PaymentMethod = orderDto.Payment.PaymentMethod,
-        //        Amount = orderDto.Payment.Amount,
-        //        Currency = orderDto.Payment.Currency
-        //    },
-        //    Status = Domain.Enum.OrderStatus.Pending
-        //};
-        //foreach (var item in orderDto.OrderItems)
-        //{
-        //    var orderItem = new Domain.Models.OrderItem
-        //    {
-        //        ProductId = item.ProductId,
-        //        Quantity = item.Quantity,
-        //        UnitPrice = item.UnitPrice
-        //    };
-        //    order.OrderItems.Add(orderItem);
-        //}
-        Order order = new Order();
-        return order;
+        foreach (var OrderitemDto in orderDto.OrderItems)
+        {
+            NewOrder.Add(ProductId.Of(OrderitemDto.ProductId), OrderitemDto.Quantity, OrderitemDto.UnitPrice);
+        }
+        return NewOrder;
     }
 }
