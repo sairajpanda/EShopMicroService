@@ -42,6 +42,7 @@ public class Order : Aggregate<OrderId>
         order.BillingAddress = billingAddress;
         order.ShippingAddress = shippingAddress;
         order.payment = payment;
+        order.Status = OrderStatus.Updated;
         order.AddDomainEvent(new OrderUpdatedEvent(order));
         return order;
     }
@@ -51,7 +52,6 @@ public class Order : Aggregate<OrderId>
          var orderItem = new OrderItem(productId, this.Id, quantity, unitPrice);
          _ordersitems.Add(orderItem);
         this.AddDomainEvent(new OrderItemAddedEvent(orderItem));
-        this._domainEvents.Add(new OrderItemAddedEvent(orderItem));
     }
      public void Remove(OrderItemId orderItemId)
     {
