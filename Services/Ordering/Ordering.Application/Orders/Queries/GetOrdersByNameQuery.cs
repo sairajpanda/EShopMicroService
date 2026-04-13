@@ -1,6 +1,6 @@
 ﻿using Ordering.Application.Extensions;
 
-namespace Ordering.Application.Orders.Queries.GetOrdersByName;
+namespace Ordering.Application.Orders.Queries;
 
 public record GetOrdersByNameQuery(string Name) : IQuery<GetProductsByNameResult>;
 public record GetProductsByNameResult(IEnumerable<OrderDto> Orders);
@@ -16,7 +16,6 @@ public class GetOrdersByNameHandlers(IApplicationDbContext DbContext) : IQueryHa
             .ToListAsync(cancellationToken);
 
         var OrderDto = OrderExtensions.ProjectToOrderDto(orders);
-
         return new GetProductsByNameResult(OrderDto);
     }
 }

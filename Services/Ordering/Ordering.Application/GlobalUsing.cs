@@ -9,4 +9,4 @@ global using System.Linq;
 global using System.Net.Mail;
 global using System.Text;
 global using System.Threading.Tasks;
-
+global using Ordering.Application.Extensions;

@@ -14,7 +14,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ordering.Application.Orders.Commands.CreateOrder;
+namespace Ordering.Application.Orders.Commands;
 
 public record CreateOrderCommand(OrderDto Order) : ICommand<CreateOrderResult>;
 

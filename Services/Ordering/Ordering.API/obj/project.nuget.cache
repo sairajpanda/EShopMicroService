@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dlUYscZU0qw=",
+  "dgSpecHash": "qkRM1IIasgE=",
   "success": true,
   "projectFilePath": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\Services\\Ordering\\Ordering.API\\Ordering.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\debra\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\debra\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\debra\\.nuget\\packages\\carter\\8.0.0\\carter.8.0.0.nupkg.sha512",
     "C:\\Users\\debra\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\debra\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.0.3\\fluentvalidation.aspnetcore.10.0.3.nupkg.sha512",
     "C:\\Users\\debra\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",

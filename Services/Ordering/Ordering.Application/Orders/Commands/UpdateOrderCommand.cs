@@ -21,7 +21,7 @@ using System.Windows.Input;
 using Ordering.Application.Exception;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace Ordering.Application.Orders.Commands.UpdateOrder;
+namespace Ordering.Application.Orders.Commands;
 
 public record UpdateOrderCommand(OrderDto order) : ICommand<UpdateOrderResult>;
 

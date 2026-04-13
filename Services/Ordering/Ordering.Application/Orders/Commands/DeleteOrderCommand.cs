@@ -25,7 +25,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Ordering.Application.Exception;
 
-namespace Ordering.Application.Orders.Commands.DeleteOrder;
+namespace Ordering.Application.Orders.Commands;
 
 public record DeleteOrderCommand(Guid Id) : ICommand<DeleteOrderResult>;
 
