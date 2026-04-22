@@ -23,11 +23,12 @@ public class GetOrdersHandlers(IApplicationDbContext DbContext) :
         var totalCount = await DbContext.Orders.CountAsync(cancellationToken);
 
         var orders = await DbContext.Orders
-            .Include(o => o.OrderItems)
-            .OrderBy(o => o.OrderName.Value)
-            .Skip(pageSize * pageIndex)
-            .Take(pageSize)
-            .ToListAsync(cancellationToken);
+        //.ToListAsync(cancellationToken);
+        .Include(o => o.OrderItems)
+        .OrderBy(o => o.OrderName.Value)
+        .Skip(pageSize * pageIndex)
+        .Take(pageSize)
+        .ToListAsync(cancellationToken);
 
         return new GetOrdersResult(new PaginatedResult<OrderDto>(pageIndex,pageSize,totalCount,OrderExtensions.ProjectToOrderDto(orders)));
 

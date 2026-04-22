@@ -1,0 +1,19 @@
+{
+  "UserName": "Bou",
+  "items": [
+    {
+      "ProductName": "Dhoti",
+      "Quantity": 1,
+      "Price": 500,
+      "Color": "Red"
+    },
+      {
+      "ProductName": "Dhoti",
+      "Quantity": 1,
+      "Price": 400,
+      "Color": "Blue"
+    }
+  ],
+  "TotalItemPrice": 0
+}
+

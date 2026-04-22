@@ -48,9 +48,15 @@ services:
     ports:
       - "5280:8080"
       - "5281:8081"
+    networks:
+      - backend
+    depends_on:
+      - distributedcache
+      - discount-grpc
+      - sqlserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=AuthDemo;TrustServerCertificate=True;"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=Order;TrustServerCertificate=True;"
 
 
   basketapi:

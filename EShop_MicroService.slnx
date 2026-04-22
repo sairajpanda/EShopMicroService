@@ -4,15 +4,18 @@
   </Folder>
   <Folder Name="/Services/" />
   <Folder Name="/Services/Basket/">
+    <File Path="BasketPayload.txt" />
     <Project Path="Services/Basket/Basket.API/Basket.API.csproj" Id="aa01b203-a5a5-4102-b394-eac08cbf547d" />
   </Folder>
   <Folder Name="/Services/Catalog/">
+    <File Path="CatalogPayload.txt" />
     <Project Path="Services/Catalog/Catalog.API/Catalog.API.csproj" Id="1b41f474-ac54-4494-8ad8-b721f3cc0921" />
   </Folder>
   <Folder Name="/Services/Discount/">
     <Project Path="Services/Discount/Discount.Grpc/Discount.Grpc.csproj" Id="325d257b-a514-4d99-90e3-f9b5674b2421" />
   </Folder>
   <Folder Name="/Services/Ordering/">
+    <File Path="OrderPayload.txt" />
     <Project Path="Services/Ordering/Ordering.API/Ordering.API.csproj" Id="4566df80-462a-4a9a-83ca-6c6adbba1c7d" />
     <Project Path="Services/Ordering/Ordering.Application/Ordering.Application.csproj" Id="89974a1a-31c0-44dc-b12a-0d08b66a718a" />
     <Project Path="Services/Ordering/Ordering.Domain/Ordering.Domain.csproj" Id="6a69b6a0-7d04-4211-ac93-60e6ddddebc5" />

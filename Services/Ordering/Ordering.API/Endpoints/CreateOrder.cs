@@ -1,4 +1,6 @@
-﻿namespace Ordering.API.Endpoints;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Ordering.API.Endpoints;
 
 public record CreateOrderRequest(OrderDto Order) : ICommand<CreateOrderResult>;
 
@@ -9,7 +11,7 @@ public class CreateOrder : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("/orders", async (CreateOrderRequest request, ISender sender) =>
+        app.MapPost("/orders", async ([FromBody] CreateOrderRequest request, ISender sender) =>
         {
             var command = request.Adapt<CreateOrderCommand>();
             var result = await sender.Send(command);

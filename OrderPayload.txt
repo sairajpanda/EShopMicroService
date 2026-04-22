@@ -1,0 +1,43 @@
+{
+"Order" : {
+  "id": "11111111-1111-1111-1111-111111111111",
+  "customerId": "60B1F787-E9B3-459A-8F1E-A28A125C02E8",
+  "orderName": "IPhone",
+  "orderItems": [
+    {
+      "productId": "60B1F787-E9B3-459A-8F1E-A28A125C0212",
+      "quantity": 1,
+      "price": 1200
+    }
+  ],
+  "billingAddress": {
+    "firstName": "Sai",
+    "lastName": "Kumar",
+    "street": "123 Main Road",
+    "city": "Bhubaneswar",
+    "state": "Odisha",
+    "country": "India",
+    "zipCode": "751001",
+    "emailAddress": "sai@example.com"
+  },
+  "shippingAddress": {
+    "firstName": "Sai",
+    "lastName": "Kumar",
+    "street": "123 Main Road",
+    "city": "Bhubaneswar",
+    "state": "Odisha",
+    "country": "India",
+    "zipCode": "751001",
+    "emailAddress": "sai@example.com"
+  },
+  "payment": {
+    "cardName": "HDFC Credit Card",
+    "cardNumber": "4111111111111111",
+    "cardHolderName": "Sai Kumar",
+    "expirationDate": "2027-12-31T00:00:00Z",
+    "cvv": "123",
+    "paymentMethod": 1
+  },
+  "status": 1
+}
+}

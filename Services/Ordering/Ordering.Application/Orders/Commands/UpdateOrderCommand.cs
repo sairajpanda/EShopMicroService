@@ -23,7 +23,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Ordering.Application.Orders.Commands;
 
-public record UpdateOrderCommand(OrderDto order) : ICommand<UpdateOrderResult>;
+public record UpdateOrderCommand(OrderDto Order) : ICommand<UpdateOrderResult>;
 
 public record UpdateOrderResult(bool IsSuccess);
 
@@ -32,13 +32,13 @@ public class UpdateOrderCommandValidator : AbstractValidator<UpdateOrderCommand>
 {
     public UpdateOrderCommandValidator()
     {
-        RuleFor(x => x.order).NotNull().WithMessage("Order cannot be null");
-        RuleFor(x => x.order.OrderItems).NotEmpty().WithMessage("Order must have at least one item");
-        RuleFor(x => x.order.CustomerId).NotEmpty().WithMessage("CustomerId cannot be empty");
-        RuleFor(x => x.order.OrderName).NotEmpty().WithMessage("OrderName cannot be empty");
-        RuleFor(x => x.order.BillingAddress).NotNull().WithMessage("BillingAddress cannot be null");
-        RuleFor(x => x.order.ShippingAddress).NotNull().WithMessage("ShippingAddress cannot be null");
-        RuleFor(x => x.order.Payment).NotNull().WithMessage("Payment cannot be null");
+        RuleFor(x => x.Order).NotNull().WithMessage("Order cannot be null");
+        RuleFor(x => x.Order.OrderItems).NotEmpty().WithMessage("Order must have at least one item");
+        RuleFor(x => x.Order.CustomerId).NotEmpty().WithMessage("CustomerId cannot be empty");
+        RuleFor(x => x.Order.OrderName).NotEmpty().WithMessage("OrderName cannot be empty");
+        RuleFor(x => x.Order.BillingAddress).NotNull().WithMessage("BillingAddress cannot be null");
+        RuleFor(x => x.Order.ShippingAddress).NotNull().WithMessage("ShippingAddress cannot be null");
+        RuleFor(x => x.Order.Payment).NotNull().WithMessage("Payment cannot be null");
     }
 }
 
@@ -46,11 +46,11 @@ public class UpdateOrderCommandHandler(IApplicationDbContext DbContext) : IComma
 {
     public async Task<UpdateOrderResult> Handle(UpdateOrderCommand command, CancellationToken cancellationToken)
     {
-        var orderid = OrderId.Of(command.order.Id);
+        var orderid = OrderId.Of(command.Order.Id);
         var order = await DbContext.Orders.FindAsync([orderid], cancellationToken);
-        if (order == null) { throw new OrderNotFoundException(command.order.Id); }
+        if (order == null) { throw new OrderNotFoundException(command.Order.Id); }
 
-        UpdateOrderWithNewValues(order, command.order);
+        UpdateOrderWithNewValues(order, command.Order);
         DbContext.Orders.Update(order);
         await DbContext.SaveChangesAsync(cancellationToken);
         return new UpdateOrderResult(true);

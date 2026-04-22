@@ -13,6 +13,6 @@ public class OrderUpdatedEventhandler(ILogger<OrderUpdatedEventhandler> logger) 
         public Task Handle(OrderUpdatedEvent notification, CancellationToken cancellationToken)
         {
             logger.LogInformation("Order updated event handled: {OrderId}", notification.order.Id);
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
 }

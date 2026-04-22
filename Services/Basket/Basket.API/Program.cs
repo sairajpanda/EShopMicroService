@@ -11,7 +11,7 @@ using System;
 
 
 var builder = WebApplication.CreateBuilder(args);
-// Add services to ther container
+
 
 //Application services
 builder.Services.AddAutoMapper(typeof(Program).Assembly);

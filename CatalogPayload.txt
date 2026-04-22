@@ -1,0 +1,7 @@
+{
+  "coupon": {
+    "product_name": "Pant",
+    "amount": 7880,
+    "description": "Yellow"
+  }
+}

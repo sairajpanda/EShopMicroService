@@ -13,7 +13,7 @@ public class OrderCreatedEventhandler(ILogger<OrderCreatedEventhandler> logger) 
    public Task Handle(OrderCreatedEvent notification, CancellationToken cancellationToken)
    {
    logger.LogInformation("Order created event handled: {OrderId}", notification.order.Id);
-   throw new NotImplementedException();
-   }
+        return Task.CompletedTask;
+    }
 }
 
