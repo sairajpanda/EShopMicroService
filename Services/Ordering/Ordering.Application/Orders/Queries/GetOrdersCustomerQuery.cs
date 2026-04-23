@@ -1,4 +1,6 @@
-﻿namespace Ordering.Application.Orders.Queries;
+﻿using Ordering.Domain.ValueObjects;
+
+namespace Ordering.Application.Orders.Queries;
 
 public record GetOrdersCustomerQuery(Guid CustomerId) :
     IQuery<GetOrdersCustomerResult>;
@@ -14,7 +16,7 @@ public class GetOrdersCustomerHandlers(IApplicationDbContext DbContext) :
         var orders = await DbContext.Orders
             .Include(o => o.OrderItems)
             .AsNoTracking()
-            .Where(p => p.CustomerId.Value == query.CustomerId)
+            .Where(p => p.CustomerId ==CustomerId.Of(query.CustomerId))
             .OrderBy(p => p.OrderName.Value)
             .ToListAsync(cancellationToken);
         var OrderDto = OrderExtensions.ProjectToOrderDto(orders);

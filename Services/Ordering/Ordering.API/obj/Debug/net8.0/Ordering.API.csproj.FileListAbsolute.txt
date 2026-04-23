@@ -158,3 +158,4 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\Mapster.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\Mapster.Core.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\Carter.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\HealthChecks.SqlServer.dll
