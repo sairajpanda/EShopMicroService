@@ -73,3 +73,10 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Infra.pdb
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Ordering.Domain.pdb
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Mapster.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Mapster.Core.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\MassTransit.Abstractions.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\BuildingBlocks.Messaging.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\MassTransit.RabbitMqTransport.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\MassTransit.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\RabbitMQ.Client.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\BuildingBlocks.Messaging.pdb

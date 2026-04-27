@@ -1,5 +1,8 @@
 ﻿using BuildingBlocks.Behaviour;
 using BuildingBlocks.Logging;
+using BuildingBlocks.Messaging.MassTransit;
+using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -8,7 +11,7 @@ namespace Ordering.Application;
 public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices
-        (this IServiceCollection services)
+        (this IServiceCollection services, IConfiguration configuration)
     {
         services.AddMediatR(cfg =>
         {
@@ -16,6 +19,9 @@ public static class DependencyInjection
             cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
             cfg.AddOpenBehavior(typeof(LoggerBehaviour<,>));
         });
+
+        services.AddMessageBroker(configuration,Assembly.GetExecutingAssembly());
+
         return services;
     }
 }

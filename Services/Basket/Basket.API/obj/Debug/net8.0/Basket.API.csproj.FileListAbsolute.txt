@@ -164,3 +164,9 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Deb
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Net.Client.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Net.ClientFactory.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Grpc.Net.Common.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\MassTransit.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\MassTransit.Abstractions.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\BuildingBlocks.Messaging.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\BuildingBlocks.Messaging.pdb

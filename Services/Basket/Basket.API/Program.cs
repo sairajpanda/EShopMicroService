@@ -6,8 +6,10 @@ using BuildingBlocks.Logging;
 using Discount.Grpc;
 using Grpc.Core;
 using HealthChecks.UI.Client;
+using MassTransit;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System;
+using BuildingBlocks.Messaging.MassTransit;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,13 +41,12 @@ builder.Services.AddStackExchangeRedisCache(options =>
 });
 
 builder.Services.AddHealthChecks()
-    .AddSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), name: "SQL Server")
-    .AddRedis(builder.Configuration.GetConnectionString("Redis"), name: "Redis Cache");
-
+    .AddSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!, name: "SQL Server")
+    .AddRedis(builder.Configuration.GetConnectionString("Redis")!, name: "Redis Cache");
 
 builder.Services.AddGrpcClient<DiscountService.DiscountServiceClient>(options =>
 {
-    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]);
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
 }).ConfigurePrimaryHttpMessageHandler(() =>
 {
     return new HttpClientHandler
@@ -53,6 +54,9 @@ builder.Services.AddGrpcClient<DiscountService.DiscountServiceClient>(options =>
         ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
     };
 });
+
+//Assync Communication Services
+builder.Services.AddMessageBroker(builder.Configuration);
 
 var app = builder.Build();
 

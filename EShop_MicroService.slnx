@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/BuildingBlocks/">
+    <Project Path="BuildingBlocks.Messaging/BuildingBlocks.Messaging/BuildingBlocks.Messaging.csproj" Id="8d225180-adae-4440-ae0d-4861567d75a9" />
     <Project Path="BuildingBlocks/BuildingBlocks.csproj" Id="7e7cb992-71a5-4c36-bba7-f316719d32e9" />
   </Folder>
   <Folder Name="/Services/" />

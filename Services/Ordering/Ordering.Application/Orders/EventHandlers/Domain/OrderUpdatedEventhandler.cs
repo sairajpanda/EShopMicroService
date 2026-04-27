@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ordering.Domain.Events;
 using Microsoft.Extensions.Logging;
-namespace Ordering.Application.Orders.EventHandlers;
+namespace Ordering.Application.Orders.EventHandlers.Domain;
 
 public class OrderUpdatedEventhandler(ILogger<OrderUpdatedEventhandler> logger) : INotificationHandler<OrderUpdatedEvent>
 {
