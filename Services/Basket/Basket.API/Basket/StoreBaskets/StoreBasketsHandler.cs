@@ -27,6 +27,7 @@ public class StoreBasketCommnadHandler(IBasketRepository _BasketRepository, Disc
 
         ShoppingCart _objShoppingCart = new ShoppingCart();
         _objShoppingCart.UserName = _request.UserName;
+        _objShoppingCart.ShoppingCartId = Guid.NewGuid();
         _objShoppingCart.Items = _request.Items; 
         _objShoppingCart.TotalItemPrice = _request.Items.Sum(x => x.Price * x.Quantity);
 

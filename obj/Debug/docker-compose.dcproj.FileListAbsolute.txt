@@ -80,3 +80,4 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\MassTransit.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\RabbitMQ.Client.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\BuildingBlocks.Messaging.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.FeatureManagement.dll

@@ -2,12 +2,14 @@
 using Basket.API.Dto;
 using BuildingBlocks.Messaging.Events;
 using MassTransit;
+using MassTransit.Transports;
 namespace Basket.API.Basket.CheckoutBasket;
 
 public record CheckOutBasketCommand(BasketCheckoutDto basketCheckoutDto) : ICommand<CheckOutBasketResult>;
 
 public record CheckOutBasketResult(bool IsSuccess);
 
+public record TestMessage(string Text);
 
 public class CheckOutBasketCommandValidator : AbstractValidator<CheckOutBasketCommand>
 {
@@ -24,17 +26,26 @@ public class CheckOutBasketCommandHandler (IBasketRepository repository,IPublish
 {
     public async Task<CheckOutBasketResult> Handle(CheckOutBasketCommand command, CancellationToken cancellationToken)
     {
-        var basket = await repository.GetBasket(command.basketCheckoutDto.UserName, cancellationToken);
-
-        if (basket == null)
-        {
-            return new CheckOutBasketResult(false);
-        }
-
-        var eventMessage = mapper.Map<BasketCheckoutEvent>(basket);
-        eventMessage.TotalPrice = basket.TotalItemPrice;
-        await publishEndpoint.Publish(eventMessage, cancellationToken);
-        await repository.DeleteBasket(command.basketCheckoutDto.UserName, cancellationToken);
+        await publishEndpoint.Publish(new TestMessage("Hello"));
         return new CheckOutBasketResult(true);
+
+        /*  try
+          {
+              var basket = await repository.GetBasket(command.basketCheckoutDto.UserName, cancellationToken);
+
+              if (basket == null)
+              {
+                  return new CheckOutBasketResult(false);
+              }
+
+              command.basketCheckoutDto.TotalPrice = basket.TotalItemPrice;
+              await publishEndpoint.Publish(command.basketCheckoutDto, cancellationToken);
+              await repository.DeleteBasket(command.basketCheckoutDto.UserName, cancellationToken);
+              return new CheckOutBasketResult(true);
+          }
+          catch (Exception ex)
+          {
+              throw ex;
+          }*/
     }
 }

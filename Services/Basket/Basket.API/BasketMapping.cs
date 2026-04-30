@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Basket.API.Basket;
+using Basket.API.Basket.CheckoutBasket;
 using Basket.API.Basket.GetBaskets;
+using BuildingBlocks.Messaging.Events;
 using System.Xml.Linq;
 using static Azure.Core.HttpHeader;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
@@ -34,6 +36,13 @@ public class BasketMappingProfile : Profile
          new DeleteBasketResponse(
             src.IsSuccess
          ));
+
+        CreateMap<CheckOutBasketRequest, CheckOutBasketCommand>()
+            .ConstructUsing(src => 
+            new CheckOutBasketCommand(
+                src.basketCheckoutDto
+            ));
+
 
 
 

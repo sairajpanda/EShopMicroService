@@ -15,7 +15,7 @@ builder.Services.AddCarter();
 
 builder.Services.AddDbContext<CatalogDBContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Configuration.GetConnectionString("CatalogDb")));
 
 builder.Services.AddMediatR(configuration =>
 {

@@ -7,7 +7,7 @@
         "Action": "Start"
       },
       {
-        "Path": "Services\\Catalog\\Catalog.API\\Catalog.API.csproj",
+        "Path": "Services\\Discount\\Discount.Grpc\\Discount.Grpc.csproj",
         "Action": "Start"
       }
     ]

@@ -58,12 +58,17 @@ services:
       - sqlserver
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=Basket;TrustServerCertificate=True;"
     networks:
       - backend
 
   distributedcache:
     image : redis
+
+  messagebroker:
+    image: rabbitmq:management
+    networks:
+      - backend
 
 
   discount-grpc:

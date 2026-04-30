@@ -159,3 +159,10 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\Mapster.Core.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\Carter.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\HealthChecks.SqlServer.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\MassTransit.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\MassTransit.Abstractions.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\Microsoft.FeatureManagement.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\BuildingBlocks.Messaging.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Ordering\Ordering.API\bin\Debug\net8.0\BuildingBlocks.Messaging.pdb

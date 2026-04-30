@@ -16,8 +16,8 @@ public class BasketCheckoutEventHandler
 {
     public async Task Consume(ConsumeContext<BasketCheckoutEvent> context)
     {
-        var command = MapToCreateOrderCommand(context.Message);
-        await sender.Send(command);
+        //var command = MapToCreateOrderCommand(context.Message);
+        //await sender.Send(command);
         logger.LogInformation("BasketCheckoutEvent handled successfully.");
     }
 }

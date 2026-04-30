@@ -19,7 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddCarter();
 builder.Services.AddDbContext<BasketDbContext>
-    (options =>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    (options =>options.UseSqlServer(builder.Configuration.GetConnectionString("BasketDb")));
 
 builder.Services.AddMediatR(cfg =>
 {
@@ -41,7 +41,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 });
 
 builder.Services.AddHealthChecks()
-    .AddSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!, name: "SQL Server")
+    .AddSqlServer(builder.Configuration.GetConnectionString("BasketDb")!, name: "SQL Server")
     .AddRedis(builder.Configuration.GetConnectionString("Redis")!, name: "Redis Cache");
 
 builder.Services.AddGrpcClient<DiscountService.DiscountServiceClient>(options =>
@@ -64,6 +64,7 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<BasketDbContext>();
     db.Database.Migrate();
+    var conn = db.Database.GetDbConnection();
 }
 
 //Config the request pipeline
@@ -73,4 +74,8 @@ app.UseHealthChecks("/health", new HealthCheckOptions
 {
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
+
+if (app.Environment.IsDevelopment())
+{
+}
 app.Run();

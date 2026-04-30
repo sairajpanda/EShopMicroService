@@ -145,3 +145,4 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Catalog\Catalog.API\obj\D
 C:\Users\debra\source\repos\EShopMicroService\Services\Catalog\Catalog.API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Catalog\Catalog.API\obj\Debug\net8.0\Catalog.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\debra\source\repos\EShopMicroService\Services\Catalog\Catalog.API\bin\Debug\net8.0\Serilog.dll
+C:\Users\debra\source\repos\EShopMicroService\Services\Catalog\Catalog.API\bin\Debug\net8.0\Microsoft.FeatureManagement.dll

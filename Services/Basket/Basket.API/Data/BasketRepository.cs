@@ -1,4 +1,5 @@
 ﻿using Basket.API.DBContext;
+using static MassTransit.ValidationResultExtensions;
 
 namespace Basket.API.Data;
 
@@ -25,7 +26,8 @@ public class BasketRepository : IBasketRepository
     public async Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken)
     {
         await _dbcontext.ShoppingCarts.AddAsync(basket);
-        await _dbcontext.SaveChangesAsync(cancellationToken);
+        var result = await _dbcontext.SaveChangesAsync(cancellationToken);
+        Console.WriteLine($"Rows affected: {result}");
         return basket;
     }
 

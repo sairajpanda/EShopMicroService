@@ -19,6 +19,11 @@ public static class DatabaseExtentions
         context.Database.MigrateAsync().GetAwaiter().GetResult();
 
         await SeedAsync(context);
+
+        var conn = context.Database.GetDbConnection();
+        Console.WriteLine("==== ACTUAL DB CONNECTION ====");
+        Console.WriteLine($"Server: {conn.DataSource}");
+        Console.WriteLine($"Database: {conn.Database}");
     }
 
     private static async Task SeedAsync(ApplicationDbContext context)

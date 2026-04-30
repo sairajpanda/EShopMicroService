@@ -170,3 +170,4 @@ C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Deb
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\RabbitMQ.Client.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\BuildingBlocks.Messaging.dll
 C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\BuildingBlocks.Messaging.pdb
+C:\Users\debra\source\repos\EShopMicroService\Services\Basket\Basket.API\bin\Debug\net8.0\Microsoft.FeatureManagement.dll
