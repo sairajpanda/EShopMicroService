@@ -26,10 +26,7 @@ public class CheckOutBasketCommandHandler (IBasketRepository repository,IPublish
 {
     public async Task<CheckOutBasketResult> Handle(CheckOutBasketCommand command, CancellationToken cancellationToken)
     {
-        await publishEndpoint.Publish(new TestMessage("Hello"));
-        return new CheckOutBasketResult(true);
-
-        /*  try
+          try
           {
               var basket = await repository.GetBasket(command.basketCheckoutDto.UserName, cancellationToken);
 
@@ -38,14 +35,15 @@ public class CheckOutBasketCommandHandler (IBasketRepository repository,IPublish
                   return new CheckOutBasketResult(false);
               }
 
-              command.basketCheckoutDto.TotalPrice = basket.TotalItemPrice;
-              await publishEndpoint.Publish(command.basketCheckoutDto, cancellationToken);
+              var eventMessage = mapper.Map<BasketCheckoutEvent>(command);
+              eventMessage.TotalPrice = basket.TotalItemPrice;
+              await publishEndpoint.Publish(eventMessage, cancellationToken);
               await repository.DeleteBasket(command.basketCheckoutDto.UserName, cancellationToken);
               return new CheckOutBasketResult(true);
           }
           catch (Exception ex)
           {
               throw ex;
-          }*/
+          }
     }
 }

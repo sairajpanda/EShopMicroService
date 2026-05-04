@@ -38,10 +38,19 @@ public class CreateOrderCommandHandler (IApplicationDbContext DbContext) : IComm
 {
     public async Task<CreateOrderResult> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
     {
-        var order = CreateNewOrder(command.Order);
-        DbContext.Orders.Add(order);
-        await DbContext.SaveChangesAsync(cancellationToken);
-        return new CreateOrderResult(order.Id.Value);
+        try
+        {
+            var order = CreateNewOrder(command.Order);
+            DbContext.Orders.Add(order);
+            var result =  await DbContext.SaveChangesAsync(cancellationToken);
+            return new CreateOrderResult(order.Id.Value);
+        }
+        catch (System.Exception ex)
+        {
+
+            throw ex;
+        }
+
     }
 
 

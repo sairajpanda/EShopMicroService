@@ -1,5 +1,5 @@
 {
-  "UserName": "Bou",
+  "UserName": "SairajPanda",
   "items": [
     {
       "ProductName": "Dhoti",
@@ -16,4 +16,26 @@
   ],
   "TotalItemPrice": 0
 }
+-----
+{"BasketCheckoutDto" :{
+  "UserName": "SairajPanda",
+  "CustermId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "TotalPrice": 900.0,
 
+  "FirstName": "SaiRaj1",
+  "LastName": "Panda1",
+  "Street": "123 Main Road",
+  "City": "Bhubaneswar",
+  "State": "Odisha",
+  "Country": "India",
+  "ZipCode": "751001",
+  "EmailAddress": "sai@example.com",
+
+  "CardName": "Visa",
+  "CardNumber": "4111111111111111",
+  "CardHolderName": "Sai Kumar",
+  "ExpirationDate": "2028-12-31T00:00:00",
+  "CVV": "123",
+  "PaymentMethod": 1
+}}
+-----

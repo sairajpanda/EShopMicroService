@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ordering.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc2b5760414745c1795d1605e1907da27b23ba15")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b13ed453b98d8ff23faac50049a6df96762eb9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ordering.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ordering.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

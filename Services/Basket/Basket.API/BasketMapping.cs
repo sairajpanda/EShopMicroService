@@ -43,50 +43,70 @@ public class BasketMappingProfile : Profile
                 src.basketCheckoutDto
             ));
 
+        CreateMap<CheckOutBasketCommand, BasketCheckoutEvent>()
+           .ConstructUsing(src =>
+           new BasketCheckoutEvent(
+           src.basketCheckoutDto.UserName,
+           src.basketCheckoutDto.CustermId,
+           src.basketCheckoutDto.TotalPrice,
+           src.basketCheckoutDto.FirstName,
+           src.basketCheckoutDto.LastName,
+           src.basketCheckoutDto.Street,
+           src.basketCheckoutDto.City,
+           src.basketCheckoutDto.State,
+           src.basketCheckoutDto.Country,
+           src.basketCheckoutDto.ZipCode,
+           src.basketCheckoutDto.EmailAddress,
+           src.basketCheckoutDto.PaymentMethod,
+           src.basketCheckoutDto.CardName,
+           src.basketCheckoutDto.CardNumber,
+           src.basketCheckoutDto.CardHolderName,
+           src.basketCheckoutDto.ExpirationDate,
+           src.basketCheckoutDto.CVV
+           ));
 
 
+    //           CreateMap<CreateProductResult, CreateProductResponse>()
+    //           .ConstructUsing(src =>
+    //               new CreateProductResponse(
+    //                   src.Id
+    //               ));
 
-        //           CreateMap<CreateProductResult, CreateProductResponse>()
-        //           .ConstructUsing(src =>
-        //               new CreateProductResponse(
-        //                   src.Id
-        //               ));
 
+    //          CreateMap<GetProductsResult, GetProductsResponse>()
+    //          .ConstructUsing(src =>
+    //              new GetProductsResponse(
+    //                  src.Products
+    //              ));
 
-        //          CreateMap<GetProductsResult, GetProductsResponse>()
-        //          .ConstructUsing(src =>
-        //              new GetProductsResponse(
-        //                  src.Products
-        //              ));
+    //        CreateMap<GetProdcutsByIDResult, GetProdcutsByIdResponse>()
+    //         .ConstructUsing(src =>
+    //               new GetProdcutsByIdResponse(
+    //                   src._products
+    //              ));
 
-        //        CreateMap<GetProdcutsByIDResult, GetProdcutsByIdResponse>()
-        //         .ConstructUsing(src =>
-        //               new GetProdcutsByIdResponse(
-        //                   src._products
-        //              ));
+    //        CreateMap<GetProductByCategoryResult, GetProductByCategoryResponse>()
+    //        .ConstructUsing(src =>
+    //              new GetProductByCategoryResponse(
+    //                  src.Products
+    //             ));
 
-        //        CreateMap<GetProductByCategoryResult, GetProductByCategoryResponse>()
-        //        .ConstructUsing(src =>
-        //              new GetProductByCategoryResponse(
-        //                  src.Products
-        //             ));
+    //        CreateMap<UpdateProductResults, UpdateProductResponse>()
+    //     .ConstructUsing(src =>
+    //           new UpdateProductResponse(
+    //               src.success
+    //          ));
 
-        //        CreateMap<UpdateProductResults, UpdateProductResponse>()
-        //     .ConstructUsing(src =>
-        //           new UpdateProductResponse(
-        //               src.success
-        //          ));
+    //        CreateMap<UpdateProductRequest, UpdateProductCommand>()
+    //  .ConstructUsing(src =>
+    //        new UpdateProductCommand(
+    //            src.Id, src.Name, src.Description, src.Price, src.Category, src.ImageFile
+    //       ));
 
-        //        CreateMap<UpdateProductRequest, UpdateProductCommand>()
-        //  .ConstructUsing(src =>
-        //        new UpdateProductCommand(
-        //            src.Id, src.Name, src.Description, src.Price, src.Category, src.ImageFile
-        //       ));
-
-        //        CreateMap<DeleteProductRequest, DeleteProductCommand>()
-        //.ConstructUsing(src =>
-        //new DeleteProductCommand(
-        //    src.Id
-        //));
-    }
+    //        CreateMap<DeleteProductRequest, DeleteProductCommand>()
+    //.ConstructUsing(src =>
+    //new DeleteProductCommand(
+    //    src.Id
+    //));
+}
 }

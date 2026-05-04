@@ -8,6 +8,26 @@ namespace BuildingBlocks.Messaging.Events;
 
 public record BasketCheckoutEvent : IntegrationEvent
 {
+    public BasketCheckoutEvent(string userName, Guid custermId, decimal totalPrice, string firstName, string lastName, string street, string city, string state, string country, string zipCode, string? emailAddress, int paymentMethod, string cardName, string cardNumber, string cardHolderName, DateTime expirationDate, string cVV)
+    {
+        UserName = userName;
+        CustermId = custermId;
+        TotalPrice = totalPrice;
+        FirstName = firstName;
+        LastName = lastName;
+        Street = street;
+        City = city;
+        State = state;
+        Country = country;
+        ZipCode = zipCode;
+        EmailAddress = emailAddress;
+        PaymentMethod = paymentMethod;
+        CardName = cardName;
+        CardNumber = cardNumber;
+        CardHolderName = cardHolderName;
+        ExpirationDate = expirationDate;
+        CVV = cVV;
+    }
     #region UserDetails
     public string UserName { get; set; } = default!;
     public Guid CustermId { get; set; } = default!;

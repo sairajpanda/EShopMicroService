@@ -1,2 +1,0 @@
-obj\Debug\net8.0\Protos/Dsicount.cs \
-obj\Debug\net8.0\Protos/DsicountGrpc.cs: Protos/Dsicount.proto

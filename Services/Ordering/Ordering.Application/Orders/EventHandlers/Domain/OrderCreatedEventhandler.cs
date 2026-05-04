@@ -21,8 +21,8 @@ public class OrderCreatedEventhandler
         if (await featureManager.IsEnabledAsync("OrderFullfillment"))
         {
             logger.LogInformation("Order created event handled: {OrderId}", domainEvent.order.Id);
-            //var orderCreatedIntegratedEvent = domainEvent.order.ToOrderDto();
-            //await publishEndpoint.Publish(orderCreatedIntegratedEvent, cancellationToken);
+             var orderCreatedIntegratedEvent = domainEvent.order;
+             await publishEndpoint.Publish(orderCreatedIntegratedEvent, cancellationToken);
         }
     }
 }

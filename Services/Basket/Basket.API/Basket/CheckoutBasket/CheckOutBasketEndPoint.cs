@@ -14,8 +14,8 @@ public class CheckOutBasketEndPoint : ICarterModule
         {
             var command = mapper.Map<CheckOutBasketCommand>(request);
             var result = await sender.Send(command);
-            var response = mapper.Map<CheckOutBasketResponse>(result);
-            return Results.Ok(response);
+            //var response = mapper.Map<CheckOutBasketResponse>(result);
+            return Results.Ok(true);
         })
          .WithName("CheckOutBasket")
         .Produces<CheckOutBasketResponse>(StatusCodes.Status200OK)
