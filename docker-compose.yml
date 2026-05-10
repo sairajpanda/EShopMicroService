@@ -77,8 +77,17 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
+  yarpapigateway:
+    image: ${DOCKER_REGISTRY-}yarpapigateway
+    build:
+      context: .
+      dockerfile: ApiGateway/YarpAPIGateway/Dockerfile
+    networks:
+      - backend
+
 volumes:
   sql_data:
 
 networks:
   backend:
+

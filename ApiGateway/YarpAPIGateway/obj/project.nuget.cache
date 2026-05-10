@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "fhP/Lf0+olk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\debra\\source\\repos\\EShopMicroService\\ApiGateway\\YarpAPIGateway\\YarpAPIGateway.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\debra\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512",
+    "C:\\Users\\debra\\.nuget\\packages\\system.io.hashing\\7.0.0\\system.io.hashing.7.0.0.nupkg.sha512",
+    "C:\\Users\\debra\\.nuget\\packages\\yarp.reverseproxy\\2.1.0\\yarp.reverseproxy.2.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

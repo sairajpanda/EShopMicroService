@@ -81,3 +81,11 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\RabbitMQ.Client.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\BuildingBlocks.Messaging.pdb
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.FeatureManagement.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.deps.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.runtimeconfig.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.staticwebassets.endpoints.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.exe
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Yarp.ReverseProxy.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\System.IO.Hashing.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.pdb

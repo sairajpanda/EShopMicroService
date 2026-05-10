@@ -37,6 +37,8 @@ services:
     ports:
       - "5276:8080"
       - "5277:8081"
+    networks:
+      - backend
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: "Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;"
@@ -88,7 +90,18 @@ services:
       ConnectionStrings__Redis: "distributedcache:6379"
       GrpcServices__DiscountUrl: "http://discount-grpc:8080"
 
-
-
-
-
+  yarpapigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    ports:
+      - "6001:8080"
+      - "6061:8081"
+    networks:
+      - backend
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

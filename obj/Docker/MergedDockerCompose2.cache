@@ -1,0 +1,223 @@
+name: dockercompose12355641691051504970
+services:
+  basketapi:
+    build:
+      context: C:\Users\debra\source\repos\EShopMicroService
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+    container_name: basketapi
+    depends_on:
+      discount-grpc:
+        condition: service_started
+        required: true
+      distributedcache:
+        condition: service_started
+        required: true
+      messagebroker:
+        condition: service_started
+        required: true
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=Basket;TrustServerCertificate=True;
+      ConnectionStrings__Redis: distributedcache:6379
+      GrpcServices__DiscountUrl: http://discount-grpc:8080
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "5278"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "5279"
+        protocol: tcp
+  catalogapi:
+    build:
+      context: C:\Users\debra\source\repos\EShopMicroService
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+    container_name: catalogapi
+    depends_on:
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=DevDemo;TrustServerCertificate=True;
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "5276"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "5277"
+        protocol: tcp
+  discount-grpc:
+    build:
+      context: C:\Users\debra\source\repos\EShopMicroService
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: discountgrpc
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "6002"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "6062"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind: {}
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind: {}
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind: {}
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind: {}
+  distributedcache:
+    container_name: distributedcache
+    image: redis
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 6379
+        published: "6379"
+        protocol: tcp
+    restart: always
+  messagebroker:
+    container_name: messagebroker
+    environment:
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_USER: guest
+    image: rabbitmq:management
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 5672
+        published: "5672"
+        protocol: tcp
+      - mode: ingress
+        target: 15672
+        published: "15672"
+        protocol: tcp
+    restart: always
+  orderapi:
+    build:
+      context: C:\Users\debra\source\repos\EShopMicroService
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+    container_name: orderapi
+    depends_on:
+      discount-grpc:
+        condition: service_started
+        required: true
+      distributedcache:
+        condition: service_started
+        required: true
+      sqlserver:
+        condition: service_started
+        required: true
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Server=sqlserver;User Id=sa;Password=StrongP@ssw0rd!;Database=Order;TrustServerCertificate=True;
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "5280"
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        published: "5281"
+        protocol: tcp
+  sqlserver:
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: StrongP@ssw0rd!
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    networks:
+      backend: null
+    ports:
+      - mode: ingress
+        target: 1433
+        published: "1433"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: sql_data
+        target: /var/opt/mssql
+        volume: {}
+  yarpapigateway:
+    build:
+      context: C:\Users\debra\source\repos\EShopMicroService
+      dockerfile: ApiGateway/YarpAPIGateway/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ASPNETCORE_HTTPS_PORTS: "8081"
+    image: yarpapigateway
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        protocol: tcp
+      - mode: ingress
+        target: 8081
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/Microsoft/UserSecrets
+        target: /home/app/.microsoft/usersecrets
+        read_only: true
+        bind: {}
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/Microsoft/UserSecrets
+        target: /root/.microsoft/usersecrets
+        read_only: true
+        bind: {}
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/ASP.NET/Https
+        target: /home/app/.aspnet/https
+        read_only: true
+        bind: {}
+      - type: bind
+        source: C:\Users\debra\AppData\Roaming/ASP.NET/Https
+        target: /root/.aspnet/https
+        read_only: true
+        bind: {}
+networks:
+  backend:
+    name: dockercompose12355641691051504970_backend
+  default:
+    name: dockercompose12355641691051504970_default
+volumes:
+  sql_data:
+    name: dockercompose12355641691051504970_sql_data
