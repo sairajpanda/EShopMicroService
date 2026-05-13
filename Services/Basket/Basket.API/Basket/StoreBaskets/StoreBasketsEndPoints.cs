@@ -7,7 +7,6 @@ public record StoreBasketsRequest(
 
 public record StoreBasketsResponse(string UserName);
 
-
 public class StoreBasketsEndPoints : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
