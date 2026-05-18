@@ -1,9 +1,6 @@
 ﻿namespace Basket.API.Basket.GetBaskets;
 
-public record StoreBasketsRequest(
- string UserName,
- ICollection<ShoppingCartItem> Items,
- decimal TotalItemPrice);
+public record StoreBasketsRequest(string UserName,ICollection<ShoppingCartItem> Items,decimal TotalItemPrice);
 
 public record StoreBasketsResponse(string UserName);
 

@@ -23,6 +23,7 @@ public record GetBasketResponse(ShoppingCartModel _shoppingCart);
 public record StoreBasketRequest(string UserName,ICollection<ShoppingCartItemModel> Items,decimal TotalItemPrice);
 public record StoreBasketResponse(string UserName);
 public record DeleteBasketResponse(bool IsSuccess);
+public record GetbasketResponse(ShoppingCartModel _shoppingCart);
 
 
 

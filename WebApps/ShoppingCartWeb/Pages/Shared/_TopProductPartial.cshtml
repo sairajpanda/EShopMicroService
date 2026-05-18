@@ -1,0 +1,85 @@
+﻿@model ShoppingCartWeb.Models.Catalog.Product
+
+@if (Model != null)
+{
+    <div class="col-12 col-lg-3 col-md-4 mb-4">
+
+        <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden product-card">
+
+            <!-- Top Badge -->
+            <div class="card-header bg-success text-white text-uppercase fw-semibold">
+
+                <i class="fa-solid fa-heart me-2"></i>
+                Top Product
+
+            </div>
+
+            <!-- Product Image -->
+            <a asp-page="ProductDetail"
+               asp-route-productId="@Model.Id"
+               class="text-decoration-none">
+
+                <img asp-append-version="true"
+                     class="card-img-top img-fluid p-3"
+                     src="~/images/product/@Model.ImageFile"
+                     alt="@Model.Name"
+                     style="height:260px; object-fit:contain;" />
+
+            </a>
+
+            <!-- Card Body -->
+            <div class="card-body d-flex flex-column">
+
+                <!-- Product Name -->
+                <h5 class="card-title text-center fw-bold mb-3">
+
+                    <a asp-page="ProductDetail"
+                       asp-route-productId="@Model.Id"
+                       class="text-decoration-none text-dark">
+
+                        @Model.Name
+
+                    </a>
+
+                </h5>
+
+                <!-- Description -->
+                <p class="text-muted small text-center mb-4">
+
+                    @(string.IsNullOrEmpty(Model.Description)
+                                    ? "Premium quality product available now."
+                                    : Model.Description)
+
+                </p>
+
+                <!-- Spacer -->
+                <div class="mt-auto">
+
+                    <div class="d-grid gap-2">
+
+                        <!-- Price -->
+                        <div class="btn btn-danger disabled fw-bold">
+                            <i class="fa-solid fa-indian-rupee-sign me-1"></i>
+                            @Model.Price
+                        </div>
+
+                        <!-- View Button -->
+                        <a asp-page="ProductDetail"
+                           asp-route-productId="@Model.Id"
+                           class="btn btn-success fw-semibold">
+
+                            <i class="fa-solid fa-eye me-1"></i>
+                            View Product
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+}

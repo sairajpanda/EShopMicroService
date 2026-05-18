@@ -11,6 +11,12 @@ builder.Services.AddRefitClient<ShoppingCartWeb.Services.ICatalogService>()
         c.BaseAddress = new Uri(builder.Configuration["ApiSettings:GatewayAddress"]!);
     });
 
+builder.Services.AddRefitClient<ShoppingCartWeb.Services.IBasketService>()
+    .ConfigureHttpClient(c =>
+    {
+        c.BaseAddress = new Uri(builder.Configuration["ApiSettings:GatewayAddress"]!);
+    });
+
 var app = builder.Build();
 app.UseRouting();
 // Configure the HTTP request pipeline.

@@ -7,7 +7,7 @@
     <UserSecretsId>d7a64980-e206-4181-9743-168e6acd42b9</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
-    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    <DockerComposeProjectPath>..\..\EShop_Microservices_First.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

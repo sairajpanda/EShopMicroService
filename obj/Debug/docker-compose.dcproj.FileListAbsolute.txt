@@ -89,3 +89,15 @@ C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Yarp.ReverseProxy.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\System.IO.Hashing.dll
 C:\Users\debra\source\repos\EShopMicroService\bin\Debug\YarpAPIGateway.pdb
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.deps.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.runtimeconfig.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.staticwebassets.runtime.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.staticwebassets.endpoints.json
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.exe
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Http.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Refit.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Refit.HttpClientFactory.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Diagnostics.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\debra\source\repos\EShopMicroService\bin\Debug\ShoppingCartWeb.pdb

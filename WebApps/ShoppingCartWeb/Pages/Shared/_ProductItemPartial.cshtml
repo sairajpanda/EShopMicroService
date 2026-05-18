@@ -1,0 +1,88 @@
+﻿@model ShoppingCartWeb.Models.Catalog.Product
+
+@if (Model != null)
+{
+    <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden product-card">
+
+        <!-- Product Image -->
+        <a asp-page="ProductDetail"
+           asp-route-productId="@Model.Id"
+           class="text-decoration-none bg-white">
+
+            <img asp-append-version="true"
+                 class="card-img-top p-3"
+                 src="~/images/product/@Model.ImageFile"
+                 alt="@Model.Name"
+                 style="height:250px; object-fit:contain;" />
+
+        </a>
+
+        <!-- Product Body -->
+        <div class="card-body d-flex flex-column">
+
+            <!-- Product Name -->
+            <h5 class="card-title fw-bold text-dark">
+
+                <a asp-page="ProductDetail"
+                   asp-route-productId="@Model.Id"
+                   class="text-decoration-none text-dark">
+                    @Model.Name
+                </a>
+
+            </h5>
+
+            <!-- Product Description -->
+            <p class="card-text text-muted small mb-4">
+
+                @(string.IsNullOrWhiteSpace(Model.Description)
+                            ? "High quality premium product."
+                            : Model.Description)
+
+            </p>
+
+            <!-- Bottom Section -->
+            <div class="mt-auto">
+
+                <div class="row g-2 align-items-center">
+
+                    <!-- Price -->
+                    <div class="col-5">
+
+                        <div class="btn btn-danger w-100 fw-bold disabled" style="font-size:small">
+                            <i class="fa-solid fa-indian-rupee-sign me-1"></i>
+                            @Model.Price
+                        </div>
+
+                    </div>
+
+                    <!-- Add To Cart -->
+                    <div class="col-7">
+
+                        <form asp-page-handler="AddToCart"
+                              method="post"
+                              id="add_cart_form_@Model.Id">
+
+                            <input type="hidden"
+                                   asp-for="@Model.Id"
+                                   name="productId" />
+
+                            <button type="submit"
+                                    class="btn btn-success w-100 fw-semibold">
+
+                                <i class="fa-solid fa-cart-plus me-1"></i>
+                                Add to Cart
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+}

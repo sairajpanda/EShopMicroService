@@ -85,9 +85,18 @@ services:
     networks:
       - backend
 
+  shoppingcartweb:
+    image: ${DOCKER_REGISTRY-}shoppingcartweb
+    build:
+      context: .
+      dockerfile: WebApps/ShoppingCartWeb/Dockerfile
+    networks:
+      - backend
+
 volumes:
   sql_data:
 
 networks:
   backend:
+
 

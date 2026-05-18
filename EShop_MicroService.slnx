@@ -28,7 +28,7 @@
   <Folder Name="/WebApps/">
     <Project Path="WebApps/ShoppingCartWeb/ShoppingCartWeb.csproj" Id="db52d1aa-ca6e-4bfc-8453-32a2e19a8ec8" />
   </Folder>
-  <Project Path="docker-compose.dcproj">
+  <Project Path="EShop_Microservices_First.dcproj">
     <Build />
   </Project>
 </Solution>

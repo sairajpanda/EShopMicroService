@@ -17,4 +17,10 @@ public interface IBasketService
 
     [Delete("/basket-service/basket/{userName}")]
     Task<DeleteBasketResponse> DeleteBasket(String UserName);
+
+    public async Task<ShoppingCartModel> GetUserBaskets()
+    {
+        var response = await GetBasket("SairajPanda");
+        return response._shoppingCart;
+    }
 }

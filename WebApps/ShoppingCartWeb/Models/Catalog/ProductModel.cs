@@ -1,5 +1,5 @@
 ﻿namespace ShoppingCartWeb.Models.Catalog;
-public class ProductModel
+public class Product
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = default!;
@@ -9,6 +9,6 @@ public class ProductModel
     public string? ImageFile { get; set; } = default!;
 }
 
-public record GetProductsResponse(IEnumerable<ProductModel> Products);
-public record GetProductByCategoryResponse(IEnumerable<ProductModel> Products);
-public record GetProductsByIdResponse(ProductModel _products);
+public record GetProductsResponse(IEnumerable<Product> Products);
+public record GetProductByCategoryResponse(IEnumerable<Product> Products);
+public record GetProductsByIdResponse(Product _products);
