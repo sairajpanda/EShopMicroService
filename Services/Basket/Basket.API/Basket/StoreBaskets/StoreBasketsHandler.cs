@@ -24,13 +24,21 @@ public class StoreBasketCommnadHandler(IBasketRepository _BasketRepository, Disc
     public async Task<StoreBasketResult> Handle(StoreBasketCommnad request, CancellationToken cancellationToken)
     {
         StoreBasketCommnad _request=  await DeductDiscount(request, cancellationToken);
-
         ShoppingCart _objShoppingCart = new ShoppingCart();
-        _objShoppingCart.UserName = _request.UserName;
-        _objShoppingCart.ShoppingCartId = Guid.NewGuid();
-        _objShoppingCart.Items = _request.Items; 
-        _objShoppingCart.TotalItemPrice = _request.Items.Sum(x => x.Price * x.Quantity);
-
+        if (_request is not null)
+        {
+            _objShoppingCart.UserName = _request.UserName;
+            _objShoppingCart.ShoppingCartId = Guid.NewGuid();
+            _objShoppingCart.Items = _request.Items;
+            _objShoppingCart.TotalItemPrice = _request.Items.Sum(x => x.Price * x.Quantity);
+        }
+        else
+        {
+            _objShoppingCart.UserName = request.UserName;
+            _objShoppingCart.ShoppingCartId = Guid.NewGuid();
+            _objShoppingCart.Items = request.Items;
+            _objShoppingCart.TotalItemPrice = request.Items.Sum(x => x.Price * x.Quantity);
+        }
         await _BasketRepository.StoreBasket(_objShoppingCart, cancellationToken);
 
         return new StoreBasketResult(request.UserName);

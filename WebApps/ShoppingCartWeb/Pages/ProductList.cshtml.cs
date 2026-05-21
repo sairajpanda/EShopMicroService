@@ -2,28 +2,48 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ShoppingCartWeb.Models.Basket;
 using ShoppingCartWeb.Models.Catalog;
+using ShoppingCartWeb.Models.Order;
 using ShoppingCartWeb.Services;
 
 namespace ShoppingCartWeb.Pages;
 
 public class ProductListModel(ILogger<IndexModel> logger, IBasketService _basketService, ICatalogService _catalogService) : PageModel
 {
-    public IEnumerable<Product> ProductList { get; set; } = [];
-    public IEnumerable<string> CategoryList { get; set; } = [];
+    public IEnumerable<Product> ProductList { get; set; } = new List<Product>();
+    public IEnumerable<string> CategoryList { get; set; } = new List<string>();
 
 
     [BindProperty(SupportsGet =true)]
     public string SelectedCategory { get; set; } = string.Empty;
 
-    public async Task<IActionResult> OnGetAsync(string CategoryName)
+    public async Task<IActionResult> OnGetAsync()
     {
         var response = await _catalogService.GetProducts();
-        CategoryList = response.Products.SelectMany(P => P.Category!).Distinct();
 
-        ProductList = response.Products.Where(p => p.Category!.Contains(CategoryName));
-        SelectedCategory = CategoryName;
+        CategoryList = response.Products
+            .SelectMany(p => p.Category ?? new List<string>())
+            .Distinct();
+
+        if (string.IsNullOrWhiteSpace(SelectedCategory))
+        {
+            ProductList = response.Products;
+        }
+        else
+        {
+            ProductList = response.Products
+                .Where(p =>
+                    p.Category != null &&
+                    p.Category.Contains(SelectedCategory));
+        }
 
         return Page();
+    }
+
+
+    public async Task<IActionResult> OnPostProductAsync(string category)
+    {
+        Console.WriteLine(category.ToString());
+        return RedirectToPage("Cart");
     }
 
 

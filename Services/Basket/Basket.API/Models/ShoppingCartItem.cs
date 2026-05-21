@@ -11,4 +11,5 @@ public class ShoppingCartItem
     public decimal Price {  get; set; }
     public Guid ProductId { get; set; }
     public String ProductName { get; set; }
+    public Guid ShoppingCartId { get; set; }
 }

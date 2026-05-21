@@ -63,21 +63,25 @@ namespace Basket.API.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ShoppingCartId")
+                    b.Property<Guid>("ShoppingCartId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ShoppingCartItemId");
 
                     b.HasIndex("ShoppingCartId");
 
-                    b.ToTable("ShoppingCartItem");
+                    b.ToTable("ShoppingCartItems");
                 });
 
             modelBuilder.Entity("Basket.API.Models.ShoppingCartItem", b =>
                 {
-                    b.HasOne("Basket.API.Models.ShoppingCart", null)
+                    b.HasOne("Basket.API.Models.ShoppingCart", "ShoppingCart")
                         .WithMany("Items")
-                        .HasForeignKey("ShoppingCartId");
+                        .HasForeignKey("ShoppingCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ShoppingCart");
                 });
 
             modelBuilder.Entity("Basket.API.Models.ShoppingCart", b =>

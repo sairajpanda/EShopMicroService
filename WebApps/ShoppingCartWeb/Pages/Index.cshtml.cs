@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ShoppingCartWeb.Models.Basket;
 using ShoppingCartWeb.Models.Catalog;
 using ShoppingCartWeb.Services;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace ShoppingCartWeb.Pages
@@ -31,23 +32,43 @@ namespace ShoppingCartWeb.Pages
 
         public async Task<IActionResult> OnPostAddToCartAsync(Guid productId)
         {
-            var UserBasketDetails = await _basketService.GetUserBaskets();
-            var ProductDetails = await _catalogService.GetProduct(productId);
-
-            UserBasketDetails.Items.Add(new ShoppingCartItemModel
+            try
             {
-                ProductName = ProductDetails._products.Name,
-                Quantity = 1,
-                Price = (decimal)ProductDetails._products.Price,
-                Color = "Black",
-                ProductId = productId
-            });
-            var UserStoreBasket = await _basketService.StoreBasket(new StoreBasketRequest(
-               "SairajPanda",
-               UserBasketDetails.Items,
-               UserBasketDetails.Items.Sum(x => x.Price * x.Quantity)
-            ));
-           return RedirectToPage("Cart");
+                var UserBasketDetails = await _basketService.GetUserBaskets();
+                var ProductDetails = await _catalogService.GetProduct(productId);
+
+                if (UserBasketDetails == null)
+                {
+                    UserBasketDetails = new ShoppingCartModel
+                    {
+                        UserName = "SairajPanda",
+                        Items = new List<ShoppingCartItemModel>()
+                    };
+
+                }
+
+                UserBasketDetails.Items.Add(new ShoppingCartItemModel
+                {
+                    ProductName = ProductDetails._products.Name,
+                    Quantity = 1,
+                    Price = (decimal)ProductDetails._products.Price,
+                    Color = "Black",
+                    ProductId = productId
+                });
+                var UserStoreBasket = await _basketService.StoreBasket(new StoreBasketRequest(
+                   "SairajPanda",
+                   UserBasketDetails.Items,
+                   UserBasketDetails.Items.Sum(x => x.Price * x.Quantity)
+                ));
+                return RedirectToPage("/Cart");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+
+           
         }
     }
 }

@@ -31,3 +31,4 @@ public class BasketCheckoutModel
 
 public record CheckOutBasketRequest(BasketCheckoutModel basketCheckoutDto);
 public record CheckOutBasketResponse(bool IsSuccess);
+

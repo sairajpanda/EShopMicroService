@@ -12,9 +12,12 @@ public class BasketRepository : IBasketRepository
     }
     public async Task<bool> DeleteBasket(string userName, CancellationToken cancellationToken)
     {
-        var deleteresult = await _dbcontext.ShoppingCarts.Include(x => x.Items).AsNoTracking().Where(x => x.UserName == userName).FirstOrDefaultAsync(cancellationToken);
-        _dbcontext.ShoppingCarts.Remove(deleteresult);
-        await _dbcontext.SaveChangesAsync(cancellationToken);
+        var deleteresult = await _dbcontext.ShoppingCarts.Include(x => x.Items).Where(x => x.UserName == userName).FirstOrDefaultAsync(cancellationToken);
+        if (deleteresult != null)
+        {
+            _dbcontext.ShoppingCarts.Remove(deleteresult);
+            await _dbcontext.SaveChangesAsync(cancellationToken);
+        }
         return true;
     }
 
@@ -25,10 +28,19 @@ public class BasketRepository : IBasketRepository
 
     public async Task<ShoppingCart> StoreBasket(ShoppingCart basket, CancellationToken cancellationToken)
     {
-        await _dbcontext.ShoppingCarts.AddAsync(basket);
-        var result = await _dbcontext.SaveChangesAsync(cancellationToken);
-        Console.WriteLine($"Rows affected: {result}");
-        return basket;
+        try
+        {
+            await DeleteBasket(basket.UserName, cancellationToken);
+            await _dbcontext.ShoppingCarts.AddAsync(basket);
+            var result = await _dbcontext.SaveChangesAsync(cancellationToken);
+            Console.WriteLine($"Rows affected: {result}");
+            return basket;
+        }
+        catch (Exception ex) 
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
 
 }

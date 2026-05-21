@@ -11,7 +11,16 @@ public class GetBasketsHandler(IBasketRepository _BasketRepository) : IQueryHand
 {
     public async Task<GetBasketResults> Handle(GetbasketQuery request, CancellationToken cancellationToken)
     {
-        var results = await _BasketRepository.GetBasket(request.UserName, cancellationToken);
-        return new GetBasketResults (results);
+		try
+		{
+            var results = await _BasketRepository.GetBasket(request.UserName, cancellationToken);
+            return new GetBasketResults(results);
+        }
+		catch (Exception ex)
+		{
+			Console.WriteLine(ex.Message);
+			throw;
+		}
+       
     }
 }

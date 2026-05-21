@@ -34,7 +34,6 @@ public class CheckOutBasketCommandHandler (IBasketRepository repository,IPublish
               {
                   return new CheckOutBasketResult(false);
               }
-
               var eventMessage = mapper.Map<BasketCheckoutEvent>(command);
               eventMessage.TotalPrice = basket.TotalItemPrice;
               await publishEndpoint.Publish(eventMessage, cancellationToken);
@@ -43,7 +42,8 @@ public class CheckOutBasketCommandHandler (IBasketRepository repository,IPublish
           }
           catch (Exception ex)
           {
-              throw ex;
+              Console.WriteLine($"Error occurred while checking out basket: {ex.Message}");
+            throw;
           }
     }
 }

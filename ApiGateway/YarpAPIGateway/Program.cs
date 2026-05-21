@@ -11,8 +11,8 @@ builder.Services.AddRateLimiter(rateLimiterOptions =>
 {
     rateLimiterOptions.AddFixedWindowLimiter("fixed", options =>
     {
-        options.PermitLimit = 3;
-        options.Window = TimeSpan.FromSeconds(10);
+        options.PermitLimit = 3000;
+        options.Window = TimeSpan.FromSeconds(1);
         options.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
         options.QueueLimit = 0;
     });
